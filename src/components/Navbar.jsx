@@ -24,7 +24,7 @@ function Navbar() {
     transition: "color 0.2s"
   };
 
-  // New: Flexbox container for Logo + Text
+  // Flexbox container for Logo + Text
   const logoContainerStyle = {
     display: "flex",
     alignItems: "center",
@@ -37,7 +37,7 @@ function Navbar() {
     width: "auto",
   };
 
-  // New: "NASA Style" Font settings
+  // "NASA Style" Font settings
   const logoTextStyle = {
     fontFamily: "'Orbitron', sans-serif", // The Sci-Fi font
     fontWeight: "700",                    // Bold
@@ -46,7 +46,8 @@ function Navbar() {
     letterSpacing: "2px",                 // Spaced out like the NASA worm
     textTransform: "uppercase"            // Force CAPS
   };
-return (
+
+  return (
     <nav style={navStyle}>
       
       {/* Logo Section */}
@@ -55,10 +56,12 @@ return (
         <span style={logoTextStyle}>UNITY RISE</span>
       </Link>
 
-      {/* REVERTED LINKS SECTION */}
+      {/* NAVIGATION LINKS */}
       <div>
         <Link to="/about" style={linkStyle}>ABOUT</Link>
         <Link to="/projects" style={linkStyle}>PROJECTS</Link>
+        {/* NEW SPONSORSHIPS LINK */}
+        <Link to="/sponsorships" style={linkStyle}>SPONSORS</Link>
         <Link to="/contact" style={linkStyle}>CONTACT US</Link>
       </div>
     </nav>
