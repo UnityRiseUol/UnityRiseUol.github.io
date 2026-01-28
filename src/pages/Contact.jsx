@@ -31,7 +31,7 @@ function Contact() {
         Contact Us
       </h2>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "40px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "40px" }}>
         
         {/* Left Column: Info */}
         <div>

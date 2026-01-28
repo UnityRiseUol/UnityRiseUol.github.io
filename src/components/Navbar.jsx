@@ -1,69 +1,45 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Navbar.css"; // <--- Import the CSS file
 
 function Navbar() {
-  const navStyle = {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "0 40px",
-    height: "var(--nav-height)",
-    background: "rgba(15, 23, 42, 0.8)",
-    backdropFilter: "blur(10px)",
-    borderBottom: "1px solid rgba(255,255,255,0.1)",
-    position: "sticky",
-    top: 0,
-    zIndex: 100,
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Toggle function
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
-  const linkStyle = {
-    color: "var(--text-main)",
-    textDecoration: "none",
-    fontFamily: "'Orbitron', sans-serif",
-    marginLeft: "30px",
-    fontSize: "0.9rem",
-    transition: "color 0.2s"
-  };
-
-  // Flexbox container for Logo + Text
-  const logoContainerStyle = {
-    display: "flex",
-    alignItems: "center",
-    textDecoration: "none", // Removes underline from the text
-    gap: "15px"             // Space between Logo and Text
-  };
-
-  const logoImgStyle = {
-    height: "50px",
-    width: "auto",
-  };
-
-  // "NASA Style" Font settings
-  const logoTextStyle = {
-    fontFamily: "'Orbitron', sans-serif", // The Sci-Fi font
-    fontWeight: "700",                    // Bold
-    fontSize: "1.5rem",
-    color: "#ffffff",                     // Pure white text
-    letterSpacing: "2px",                 // Spaced out like the NASA worm
-    textTransform: "uppercase"            // Force CAPS
+  // Close menu when a link is clicked
+  const closeMenu = () => {
+    setIsOpen(false);
   };
 
   return (
-    <nav style={navStyle}>
+    <nav className="navbar">
       
       {/* Logo Section */}
-      <Link to="/" style={logoContainerStyle}>
-        <img src="/ur_logo.png" alt="Unity Rise Logo" style={logoImgStyle} />
-        <span style={logoTextStyle}>UNITY RISE</span>
+      <Link to="/" className="logo-container" onClick={closeMenu}>
+        <img src="/ur_logo.png" alt="Unity Rise Logo" className="logo-img" />
+        <span className="logo-text">UNITY RISE</span>
       </Link>
 
-      {/* NAVIGATION LINKS */}
-      <div>
-        <Link to="/about" style={linkStyle}>ABOUT</Link>
-        <Link to="/projects" style={linkStyle}>PROJECTS</Link>
-        {/* NEW SPONSORSHIPS LINK */}
-        <Link to="/sponsorships" style={linkStyle}>SPONSORS</Link>
-        <Link to="/contact" style={linkStyle}>CONTACT US</Link>
+      {/* Hamburger Icon (Visible only on Mobile) */}
+      <button className="hamburger" onClick={toggleMenu}>
+        <span className="bar" style={{ transform: isOpen ? "rotate(45deg) translate(5px, 6px)" : "none" }}></span>
+        <span className="bar" style={{ opacity: isOpen ? 0 : 1 }}></span>
+        <span className="bar" style={{ transform: isOpen ? "rotate(-45deg) translate(5px, -6px)" : "none" }}></span>
+      </button>
+
+      {/* Navigation Links */}
+      {/* We add the class "open" if isOpen is true */}
+      <div className={`nav-links ${isOpen ? "open" : ""}`}>
+        <Link to="/about" className="nav-link" onClick={closeMenu}>ABOUT</Link>
+        <Link to="/projects" className="nav-link" onClick={closeMenu}>PROJECTS</Link>
+        <Link to="/sponsorships" className="nav-link" onClick={closeMenu}>SPONSORS</Link>
+        <Link to="/contact" className="nav-link" onClick={closeMenu}>CONTACT US</Link>
       </div>
+      
     </nav>
   );
 }

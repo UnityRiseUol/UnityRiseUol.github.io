@@ -1,0 +1,115 @@
+/* src/components/Navbar.css */
+
+/* 1. Base Styles (Desktop) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: 80px; /* var(--nav-height) */
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 15px;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+}
+
+.logo-text {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem; /* Slightly smaller for safety */
+  color: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* 2. Links (Desktop) */
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-link {
+  color: #e2e8f0; /* var(--text-main) */
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #38bdf8; /* var(--accent) */
+}
+
+/* 3. Hamburger Icon (Hidden on Desktop) */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bar {
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+/* =========================================
+   MOBILE STYLES (Screen smaller than 768px)
+   ========================================= */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px; /* Less padding on mobile */
+  }
+
+  .hamburger {
+    display: flex; /* Show hamburger */
+  }
+
+  /* Hide links by default on mobile */
+  .nav-links {
+    position: absolute;
+    top: 80px; /* Height of navbar */
+    left: 0;
+    width: 100%;
+    background: #0f172a; /* Dark background */
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    
+    /* Animation setup */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  /* When the 'open' class is added (via React), show the menu */
+  .nav-links.open {
+    max-height: 300px; /* Enough height to show all links */
+  }
+
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+}
