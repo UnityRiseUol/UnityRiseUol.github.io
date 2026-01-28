@@ -5,21 +5,21 @@ function Projects() {
     { 
       id: "banana-split", 
       name: "BANANA SPLIT", 
-      status: "COMPLETED", 
+      status: "COMPLETED // 2023-24", 
       rank: "8th Place Overall",
       img: "/banana_split.jpg" 
     },
     { 
       id: "pulsar",
       name: "PULSAR", 
-      status: "COMPLETED", 
+      status: "COMPLETED // 2024-25", 
       rank: "6th Place Overall",
       img: "/pulsar_launch_day.png" 
     },
     { 
       id: "pl-26",
       name: "PL-26", 
-      status: "IN PROGRESS", 
+      status: "IN PROGRESS // 2025-26", 
       rank: "Targeting Top 3",
       img: "/PL26_CAD.png" 
     }
@@ -31,7 +31,7 @@ function Projects() {
         Mission Log
       </h2>
 
-      {/* FIX 1: Lowered min-width to 300px so 3 cards fit on one row */}
+      {/* Grid Layout */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "30px" }}>
         {projects.map((p) => (
           <Link to={`/projects/${p.id}`} key={p.id} style={{ textDecoration: "none" }}>
@@ -65,7 +65,6 @@ function Projects() {
                     height: "100%", 
                     objectFit: "cover",
                     objectPosition: "center",
-                    // FIX 2: Slight scale (1.02) removes the white hairline border by zooming past it
                     transform: "scale(1.02)" 
                   }} 
                 />

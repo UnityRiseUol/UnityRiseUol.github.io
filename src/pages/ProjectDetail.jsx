@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 
 function ProjectDetail() {
-  const { id } = useParams(); // Grabs "pulsar" from the URL
+  const { id } = useParams();
 
   // Ideally this data lives in a separate file, but we'll keep it here for simplicity
   const projects = {
@@ -11,9 +11,7 @@ function ProjectDetail() {
       status: "COMPLETED", 
       rank: "8th Place Overall",
       award: "🏆 Best Airframe Award",
-      desc: "Our debut competition rocket featuring a custom composite layup and modular payload bay. Designed to validate our manufacturing processes.",
-      imgRocket: "https://via.placeholder.com/300x500?text=Banana+Split+Launch", 
-      imgAvionics: "https://via.placeholder.com/300x500?text=Avionics+Stack"
+      desc: "Our debut competition rocket with an apogee of 2120ft.",
     },
     "pulsar": { 
       name: "PULSAR", 
@@ -21,9 +19,7 @@ function ProjectDetail() {
       status: "COMPLETED", 
       rank: "6th Place Overall",
       award: "🏆 Best Novel Recovery Method",
-      desc: "High-altitude vehicle demonstrating a new reefing parachute system for controlled descent. This rocket pushed our altitude record by 20%.",
-      imgRocket: "/pulsar_rocket.png", 
-      imgAvionics: "/pulsar_avionics.png"
+      desc: "Our second rocket, focusing on improved avionics with custom PCB and, more advanced structural design and a unique recovery system.",
     },
     "pl-26": { 
       name: "PL-26", 
@@ -31,9 +27,7 @@ function ProjectDetail() {
       status: "IN PROGRESS", 
       rank: "Targeting Top 3",
       award: "Current Flagship",
-      desc: "Next-gen supersonic vehicle designed for maximum apogee with active stabilization control using adjustable canards.",
-      imgRocket: "https://via.placeholder.com/300x500?text=PL-26+CAD+Model", 
-      imgAvionics: "https://via.placeholder.com/300x500?text=Flight+Computer+V3"
+      desc: "Our Next-gen rocket designed to improve on the lessons learned from our previous builds, aiming for a higher apogee with more complex engineering design.",
     }
   };
 
@@ -58,20 +52,6 @@ function ProjectDetail() {
         </div>
       </div>
 
-      {/* DETAILED IMAGES SECTION */}
-      <h3 style={{ borderBottom: "1px solid #333", paddingBottom: "10px", marginBottom: "20px" }}>TECHNICAL SYSTEMS</h3>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", height: "500px" }}>
-        {/* Rocket Image */}
-        <div style={{ position: "relative", borderRadius: "10px", overflow: "hidden" }}>
-           <img src={project.imgRocket} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-           <span style={{ position: "absolute", bottom: "10px", left: "10px", background: "rgba(0,0,0,0.8)", padding: "5px 10px", borderRadius: "5px" }}>VEHICLE</span>
-        </div>
-        {/* Avionics Image */}
-        <div style={{ position: "relative", borderRadius: "10px", overflow: "hidden" }}>
-           <img src={project.imgAvionics} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-           <span style={{ position: "absolute", bottom: "10px", left: "10px", background: "rgba(0,0,0,0.8)", padding: "5px 10px", borderRadius: "5px" }}>AVIONICS</span>
-        </div>
-      </div>
     </div>
   );
 }
