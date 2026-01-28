@@ -1,0 +1,60 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+  /* The "Mission Control" Palette */
+  --bg-dark: #0f172a;       /* Deep Navy/Black */
+  --bg-card: #1e293b;       /* Slightly lighter for cards */
+  --accent: #38bdf8;        /* Electric Blue (Tech look) */
+  --accent-glow: rgba(56, 189, 248, 0.3);
+  --text-main: #f1f5f9;     /* Off-white (easier on eyes) */
+  --text-muted: #94a3b8;    /* Gray for secondary text */
+  
+  /* Spacing standards */
+  --nav-height: 70px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Roboto', sans-serif; /* Clean, readable font */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headers get the Sci-Fi look */
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif; /* The "Space" font */
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Make sure the app takes full height */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Global Button Style (Reusable) */
+.btn {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  padding: 10px 24px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: var(--accent);
+  color: var(--bg-dark);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
