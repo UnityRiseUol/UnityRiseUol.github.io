@@ -36,6 +36,7 @@ function Navbar() {
       <div className={`nav-links ${isOpen ? "open" : ""}`}>
         <Link to="/about" className="nav-link" onClick={closeMenu}>ABOUT</Link>
         <Link to="/projects" className="nav-link" onClick={closeMenu}>PROJECTS</Link>
+        <Link to="/outreach" className="nav-link" onClick={closeMenu}>OUTREACH</Link>
         <Link to="/sponsorships" className="nav-link" onClick={closeMenu}>SPONSORS</Link>
         <Link to="/contact" className="nav-link" onClick={closeMenu}>CONTACT US</Link>
       </div>
