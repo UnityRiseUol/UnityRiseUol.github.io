@@ -38,6 +38,7 @@ function Navbar() {
         <Link to="/projects" className="nav-link" onClick={closeMenu}>PROJECTS</Link>
         <Link to="/blog" className="nav-link" onClick={closeMenu}>BLOG</Link>
         <Link to="/outreach" className="nav-link" onClick={closeMenu}>OUTREACH</Link>
+        <Link to="/sponsorships" className="nav-link" onClick={closeMenu}>SPONSORSHIPS</Link>
         <Link to="/contact" className="nav-link" onClick={closeMenu}>CONTACT US</Link>
       </div>
       
