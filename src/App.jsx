@@ -9,6 +9,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Sponsorships from "./pages/Sponsorships"; // <--- 1. IMPORT IT
 import Outreach from "./pages/Outreach";
+import Blog from "./pages/Blog";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           {/* 2. ADD THE ROUTE */}
           <Route path="/sponsorships" element={<Sponsorships />} />
           <Route path="/outreach" element={<Outreach />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
       </div>
 

@@ -14,8 +14,10 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "front-matter": "^4.0.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-markdown": "^10.1.0",
     "react-router-dom": "^7.13.0"
   },
   "devDependencies": {
