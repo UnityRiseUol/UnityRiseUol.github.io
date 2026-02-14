@@ -85,8 +85,7 @@ function Home() {
       <div style={{ maxWidth: "1000px", margin: "0 auto", padding: "60px 20px", textAlign: "center" }}>
         <h2 style={{ marginBottom: "20px" }}>OUR MISSION</h2>
         <p style={{ fontSize: "1.1rem", lineHeight: "1.8", color: "var(--text-muted)", marginBottom: "40px" }}>
-          Unity Rise is a student-led engineering team dedicated to pushing the boundaries of collegiate rocketry. 
-          From custom avionics to supersonic airframes, we provide hands-on aerospace experience.
+          Unity Rise is a student-led engineering team dedicated to pushing the boundaries of university rocketry. 
         </p>
         
         <div style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
