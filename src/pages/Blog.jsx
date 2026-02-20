@@ -126,7 +126,7 @@ function Blog() {
             </div>
             
             <h3 style={{ fontSize: "1.8rem", marginBottom: "15px", color: "white" }}>
-              {post.title || "Untitled"}=
+              {post.title || "Untitled"}
             </h3>
             
             <p style={{ color: "var(--text-muted)", lineHeight: "1.7", marginBottom: "20px", fontSize: "1.05rem" }}>
