@@ -42,4 +42,5 @@ We had a wonderful time sharing our journey so far and hope we've inspired a few
 :::gallery
 ![Scout Group Visit](/WhatsApp%20Image%202026-03-03%20at%2020.43.16.jpeg)
 ![Scout Group Visit](/WhatsApp%20Image%202026-03-03%20at%2020.43.37.jpeg)
+![Scout Group Visit](/20260303_180229.jpg)
 :::
