@@ -36,6 +36,90 @@ function Blog() {
     setPosts(parsedPosts);
   }, []);
 
+  // Function to split content into markdown and gallery sections
+  const parseContentWithGalleries = (content) => {
+    const sections = [];
+    const galleryRegex = /:::gallery\s*([\s\S]*?):::/g;
+    let lastIndex = 0;
+    let match;
+
+    while ((match = galleryRegex.exec(content)) !== null) {
+      // Add markdown before gallery
+      if (match.index > lastIndex) {
+        sections.push({
+          type: 'markdown',
+          content: content.substring(lastIndex, match.index)
+        });
+      }
+
+      // Extract images from gallery content
+      const galleryContent = match[1];
+      const imgMatches = galleryContent.match(/!\[([^\]]*)\]\(([^)]*)\)/g) || [];
+      const images = imgMatches.map(img => {
+        const src = img.match(/\]\(([^)]*)\)/)[1];
+        const alt = img.match(/!\[([^\]]*)\]/)[1];
+        return { src, alt };
+      });
+
+      sections.push({
+        type: 'gallery',
+        images: images
+      });
+
+      lastIndex = match.index + match[0].length;
+    }
+
+    // Add remaining markdown
+    if (lastIndex < content.length) {
+      sections.push({
+        type: 'markdown',
+        content: content.substring(lastIndex)
+      });
+    }
+
+    return sections;
+  };
+
+  // Render parsed content with galleries
+  const renderContent = (content) => {
+    const sections = parseContentWithGalleries(content);
+    return sections.map((section, idx) => {
+      if (section.type === 'gallery') {
+        return (
+          <div key={idx} style={{ display: "flex", gap: "20px", flexWrap: "wrap", margin: "30px 0", justifyContent: "center" }}>
+            {section.images.map((img, imgIdx) => (
+              <img
+                key={imgIdx}
+                src={img.src}
+                alt={img.alt}
+                style={{ maxWidth: "100%", borderRadius: "10px", maxHeight: "400px" }}
+              />
+            ))}
+          </div>
+        );
+      } else {
+        return (
+          <div key={idx} style={{ color: "var(--text-muted)", lineHeight: "1.8", fontSize: "1.1rem" }}>
+            <ReactMarkdown
+              components={{
+                h1: ({node, ...props}) => <h1 style={{color: 'white', marginTop: '40px', marginBottom: '20px'}} {...props} />,
+                h2: ({node, ...props}) => <h2 style={{color: 'white', marginTop: '40px', marginBottom: '20px'}} {...props} />,
+                h3: ({node, ...props}) => <h3 style={{color: 'white', marginTop: '30px', marginBottom: '15px'}} {...props} />,
+                p: ({node, ...props}) => <p style={{marginBottom: '20px'}} {...props} />,
+                ul: ({node, ...props}) => <ul style={{marginBottom: '20px', paddingLeft: '20px'}} {...props} />,
+                li: ({node, ...props}) => <li style={{marginBottom: '10px'}} {...props} />,
+                img: ({node, ...props}) => <img style={{maxWidth: '100%', borderRadius: '10px', margin: '20px 0'}} {...props} />,
+                strong: ({node, ...props}) => <strong style={{color: 'white'}} {...props} />,
+              }}
+            >
+              {section.content}
+            </ReactMarkdown>
+          </div>
+        );
+      }
+    });
+  };
+
   // If a post is selected, show the full article view
   if (selectedPost) {
     return (
@@ -64,24 +148,8 @@ function Blog() {
           </div>
           <h1 style={{ fontSize: "2.5rem", marginBottom: "30px", lineHeight: "1.2" }}>{selectedPost.title}</h1>
           
-          {/* Render the Markdown content */}
-          <div style={{ color: "var(--text-muted)", lineHeight: "1.8", fontSize: "1.1rem" }}>
-            <ReactMarkdown
-              components={{
-                // Custom styling for markdown elements to match your theme
-                h1: ({node, ...props}) => <h1 style={{color: 'white', marginTop: '40px', marginBottom: '20px'}} {...props} />,
-                h2: ({node, ...props}) => <h2 style={{color: 'white', marginTop: '40px', marginBottom: '20px'}} {...props} />,
-                h3: ({node, ...props}) => <h3 style={{color: 'white', marginTop: '30px', marginBottom: '15px'}} {...props} />,
-                p: ({node, ...props}) => <p style={{marginBottom: '20px'}} {...props} />,
-                ul: ({node, ...props}) => <ul style={{marginBottom: '20px', paddingLeft: '20px'}} {...props} />,
-                li: ({node, ...props}) => <li style={{marginBottom: '10px'}} {...props} />,
-                img: ({node, ...props}) => <img style={{maxWidth: '100%', borderRadius: '10px', margin: '20px 0'}} {...props} />,
-                strong: ({node, ...props}) => <strong style={{color: 'white'}} {...props} />,
-              }}
-            >
-              {selectedPost.body}
-            </ReactMarkdown>
-          </div>
+          {/* Render the content with galleries */}
+          {renderContent(selectedPost.body)}
         </article>
       </div>
     );
