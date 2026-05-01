@@ -1,6 +1,8 @@
 /* src/index.css */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
 
+/* Dark Theme (Default) */
+:root[data-theme="dark"],
 :root {
   /* The "Mission Control" Palette */
   --bg-dark: #0f172a;       /* Deep Navy/Black */
@@ -14,6 +16,19 @@
   --nav-height: 70px;
 }
 
+/* Light Theme */
+:root[data-theme="light"] {
+  --bg-dark: #f8fafc;       /* Light background */
+  --bg-card: #e2e8f0;       /* Light card background */
+  --accent: #0284c7;        /* Darker blue for light mode */
+  --accent-glow: rgba(2, 132, 199, 0.2);
+  --text-main: #0f172a;     /* Dark text */
+  --text-muted: #475569;    /* Darker gray for secondary text */
+
+  /* Spacing standards */
+  --nav-height: 70px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -21,6 +36,7 @@ body {
   color: var(--text-main);
   font-family: 'Roboto', sans-serif; /* Clean, readable font */
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Headers get the Sci-Fi look */

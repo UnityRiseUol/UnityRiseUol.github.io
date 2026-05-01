@@ -109,7 +109,7 @@ function Home() {
       </div>
 
       {/* 3. MEDIA GALLERY (UPDATED TO 2x3 GRID) */}
-      <div style={{ background: "#0f172a", padding: "60px 20px" }}>
+      <div style={{ background: "var(--bg-dark)", padding: "60px 20px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <h2 style={{ borderBottom: "2px solid var(--accent)", display: "inline-block", paddingBottom: "10px", marginBottom: "40px" }}>
             GALLERY
