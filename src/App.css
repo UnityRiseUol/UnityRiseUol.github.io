@@ -8,6 +8,7 @@ main {
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  scroll-padding-top: 96px;
 }
 
 body {
@@ -25,6 +26,10 @@ section {
   width: 100%;
 }
 
+section[id], footer[id] {
+  scroll-margin-top: 96px;
+}
+
 /* Smooth scroll behavior for anchor links */
 a[href^="#"] {
   scroll-behavior: smooth;
@@ -37,6 +42,16 @@ a[href^="#"] {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 84px;
+  }
+
+  section[id], footer[id] {
+    scroll-margin-top: 84px;
   }
 }
 

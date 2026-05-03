@@ -6,10 +6,10 @@ function Hero() {
       <div className="hero-content">
         <div className="hero-text">
           <h1 className="hero-title">Unity Rise</h1>
-          <p className="hero-subtitle">The University of Liverpool's Premier Rocket Team</p>
+          <p className="hero-subtitle">The University of Liverpool's Rocket Team</p>
           <p className="hero-description">
-            Engineering the future of aerospace. We design, build, and launch high-powered model rockets
-            and compete at national and international competitions.
+            We design, build, and launch model rockets as part of the UKSEDS National Rocketry Championship,
+            and Mach-X Rocketry Championship in the coming year.
           </p>
           <div className="hero-cta">
             <a href="#projects" className="cta-button primary">View Our Projects</a>

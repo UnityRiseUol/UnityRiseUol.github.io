@@ -21,14 +21,6 @@ function Projects() {
       highlights: ['Advanced telemetry', 'AI recovery', 'Real-time tracking'],
       status: 'Development'
     }
-    ,
-    {
-      name: 'Mach-X',
-      description: 'Student competition entry for the Mach-X high-speed rocketry challenge. See the official event page for rules and timeline.',
-      highlights: ['High-speed flight', 'Payload integration', 'Performance-focused'],
-      status: 'Upcoming',
-      url: 'https://www.exo.events/mach-x'
-    }
   ]
 
   const [selectedProject, setSelectedProject] = useState(null)

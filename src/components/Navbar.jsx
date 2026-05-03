@@ -1,5 +1,5 @@
 import './Navbar.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 function Navbar() {
   const [isDark, setIsDark] = useState(() => {
@@ -12,6 +12,8 @@ function Navbar() {
 
     return savedTheme ? savedTheme === 'dark' : prefersDark
   })
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const navbarRef = useRef(null)
 
   const updateTheme = (dark) => {
     const htmlElement = document.documentElement
@@ -29,18 +31,60 @@ function Navbar() {
     updateTheme(isDark)
   }, [isDark])
 
+  useEffect(() => {
+    function handleDocumentInteraction(event) {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false)
+      }
+
+      if (event.type === 'mousedown' && navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleDocumentInteraction)
+    document.addEventListener('keydown', handleDocumentInteraction)
+
+    return () => {
+      document.removeEventListener('mousedown', handleDocumentInteraction)
+      document.removeEventListener('keydown', handleDocumentInteraction)
+    }
+  }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : ''
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMenuOpen])
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 768) {
+        setIsMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   const toggleTheme = () => {
     const newIsDark = !isDark
     setIsDark(newIsDark)
     updateTheme(newIsDark)
   }
 
+  const closeMenu = () => setIsMenuOpen(false)
+
   const logoSrc = isDark ? '/ur_logo.png' : '/ur_logo_black.png'
 
   return (
-    <nav className="navbar">
+    <nav className="navbar" ref={navbarRef}>
       <div className="navbar-container">
-        <a href="#" className="navbar-brand" aria-label="Unity Rise home">
+        <a href="#" className="navbar-brand" aria-label="Unity Rise home" onClick={closeMenu}>
           <img
             src={logoSrc}
             className="navbar-brand-logo"
@@ -48,24 +92,37 @@ function Navbar() {
           />
           <span className="navbar-logo">Unity Rise</span>
         </a>
-        <ul className="nav-menu">
+        <button
+          type="button"
+          className="nav-toggle"
+          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={isMenuOpen}
+          aria-controls="primary-navigation"
+          onClick={() => setIsMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <ul className={`nav-menu ${isMenuOpen ? 'open' : ''}`} id="primary-navigation">
           <li className="nav-item">
-            <a href="#about" className="nav-link">About</a>
+            <a href="#about" className="nav-link" onClick={closeMenu}>About</a>
           </li>
           <li className="nav-item">
-            <a href="#projects" className="nav-link">Projects</a>
+            <a href="#projects" className="nav-link" onClick={closeMenu}>Projects</a>
           </li>
           <li className="nav-item">
-            <a href="#sponsorships" className="nav-link">Sponsorships</a>
+            <a href="#sponsorships" className="nav-link" onClick={closeMenu}>Sponsorships</a>
           </li>
           <li className="nav-item">
-            <a href="#outreach" className="nav-link">Outreach</a>
+            <a href="#outreach" className="nav-link" onClick={closeMenu}>Outreach</a>
           </li>
           <li className="nav-item">
-            <a href="#contact" className="nav-link">Contact Us</a>
+            <a href="#contact" className="nav-link" onClick={closeMenu}>Contact Us</a>
           </li>
         </ul>
-        <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle dark mode">
+        <button type="button" className="theme-toggle" onClick={toggleTheme} aria-label="Toggle dark mode">
           {isDark ? (
             <svg className="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <circle cx="12" cy="12" r="5"/>
