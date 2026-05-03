@@ -13,8 +13,9 @@ function getTimeRemaining() {
   const days = Math.floor(total / (1000 * 60 * 60 * 24))
   const hours = Math.floor((total / (1000 * 60 * 60)) % 24)
   const minutes = Math.floor((total / (1000 * 60)) % 60)
+  const seconds = Math.floor((total / 1000) % 60)
 
-  return { days, hours, minutes }
+  return { days, hours, minutes, seconds }
 }
 
 function Hero() {
@@ -53,6 +54,10 @@ function Hero() {
                 <div className="countdown-item">
                   <span className="countdown-value">{String(timeRemaining.minutes).padStart(2, '0')}</span>
                   <span className="countdown-unit">Minutes</span>
+                </div>
+                <div className="countdown-item">
+                  <span className="countdown-value">{String(timeRemaining.seconds).padStart(2, '0')}</span>
+                  <span className="countdown-unit">Seconds</span>
                 </div>
               </div>
             ) : (
