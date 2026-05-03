@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
+.projects {
+  padding: 80px 20px;
+  background: var(--bg);
+  position: relative;
+}
+
+.projects .section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects .section-title {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  color: var(--text);
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.projects .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #FF6B6B, #FFA500);
+  border-radius: 2px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  background: var(--card-bg, rgba(70, 130, 180, 0.05));
+  border: 1px solid rgba(70, 130, 180, 0.2);
+  border-radius: 12px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #FF6B6B, #FFA500);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(70, 130, 180, 0.5);
+  box-shadow: 0 15px 40px rgba(70, 130, 180, 0.2);
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.project-header h3 {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  flex: 1;
+}
+
+.project-status {
+  background: linear-gradient(135deg, #FF6B6B, #FFA500);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.project-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.project-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.highlight-tag {
+  display: inline-block;
+  background: rgba(70, 130, 180, 0.15);
+  color: #4682B4;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(70, 130, 180, 0.3);
+  transition: all 0.2s ease;
+}
+
+.project-card:hover .highlight-tag {
+  background: rgba(70, 130, 180, 0.25);
+  border-color: rgba(70, 130, 180, 0.5);
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 60px 20px;
+  }
+
+  .projects .section-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-card {
+    padding: 20px;
+  }
+
+  .project-header h3 {
+    font-size: 18px;
+  }
+}
+
+/* Modal styles for project details */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.modal {
+  width: 100%;
+  max-width: 720px;
+  /* Use the page background so colors follow the site's light/dark theme */
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 28px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  outline: none;
+  /* subtle border to separate modal from dimmed overlay in both themes */
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+[data-theme="dark"] .modal {
+  border-color: rgba(255,255,255,0.06);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.modal h3 {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.modal-status {
+  display: inline-block;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #FF6B6B, #FFA500);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.modal-description {
+  margin: 12px 0 18px 0;
+  line-height: 1.6;
+}
+
+.modal-highlights {
+  margin: 0 0 8px 18px;
+}
+
+.modal-highlights li {
+  margin-bottom: 6px;
+}
+
+.modal-link a {
+  color: #FF6B6B;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.modal-link a:hover {
+  text-decoration: underline;
+}
+

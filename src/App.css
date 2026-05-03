@@ -1,1 +1,42 @@
-/* Blank white page for Unity Rise website */
+/* Global app styling */
+
+main {
+  width: 100%;
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Remove default margin from main element */
+main {
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure smooth transitions between sections */
+section {
+  width: 100%;
+}
+
+/* Smooth scroll behavior for anchor links */
+a[href^="#"] {
+  scroll-behavior: smooth;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

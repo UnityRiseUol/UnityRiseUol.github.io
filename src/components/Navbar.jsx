@@ -2,27 +2,32 @@ import './Navbar.css'
 import { useState, useEffect } from 'react'
 
 function Navbar() {
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window === 'undefined') {
+      return false
+    }
 
-  useEffect(() => {
-    // Check saved theme preference or system preference
     const savedTheme = localStorage.getItem('theme')
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 
-    const useDark = savedTheme ? savedTheme === 'dark' : prefersDark
-    setIsDark(useDark)
-    updateTheme(useDark)
-  }, [])
+    return savedTheme ? savedTheme === 'dark' : prefersDark
+  })
 
   const updateTheme = (dark) => {
     const htmlElement = document.documentElement
+
     if (dark) {
       htmlElement.setAttribute('data-theme', 'dark')
     } else {
       htmlElement.removeAttribute('data-theme')
     }
+
     localStorage.setItem('theme', dark ? 'dark' : 'light')
   }
+
+  useEffect(() => {
+    updateTheme(isDark)
+  }, [isDark])
 
   const toggleTheme = () => {
     const newIsDark = !isDark
@@ -30,11 +35,18 @@ function Navbar() {
     updateTheme(newIsDark)
   }
 
+  const logoSrc = isDark ? '/ur_logo.png' : '/ur_logo_black.png'
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <a href="#" className="navbar-logo">
-          Unity Rise
+        <a href="#" className="navbar-brand" aria-label="Unity Rise home">
+          <img
+            src={logoSrc}
+            className="navbar-brand-logo"
+            alt="Unity Rise logo"
+          />
+          <span className="navbar-logo">Unity Rise</span>
         </a>
         <ul className="nav-menu">
           <li className="nav-item">
@@ -55,7 +67,7 @@ function Navbar() {
         </ul>
         <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle dark mode">
           {isDark ? (
-            <svg className="theme-icon" viewBox="0 0 24 24" fills="none" stroke="currentColor">
+            <svg className="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <circle cx="12" cy="12" r="5"/>
               <line x1="12" y1="1" x2="12" y2="3"/>
               <line x1="12" y1="21" x2="12" y2="23"/>
@@ -67,7 +79,7 @@ function Navbar() {
               <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
             </svg>
           ) : (
-            <svg className="theme-icon" viewBox="0 0 24 24" fills="currentColor">
+            <svg className="theme-icon" viewBox="0 0 24 24" fill="currentColor">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
             </svg>
           )}

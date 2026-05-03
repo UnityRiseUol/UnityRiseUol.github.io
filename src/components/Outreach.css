@@ -1,0 +1,498 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
+.outreach {
+  padding: 80px 20px;
+  background: var(--bg);
+  position: relative;
+}
+
+.outreach .section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.outreach .section-title {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text);
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.outreach .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #27AE60, #2ECC71);
+  border-radius: 2px;
+}
+
+.outreach .section-description {
+  text-align: center;
+  font-size: 18px;
+  color: var(--text);
+  opacity: 0.8;
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.initiatives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.initiative-card {
+  background: rgb(39, 174, 96, 0.05);
+  border: 1px solid rgba(39, 174, 96, 0.2);
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.initiative-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.initiative-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(39, 174, 96, 0.5);
+  box-shadow: 0 15px 40px rgba(39, 174, 96, 0.2);
+}
+
+.initiative-card:hover::before {
+  opacity: 1;
+}
+
+.initiative-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  display: inline-block;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.initiative-card h3 {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.initiative-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0.8;
+  position: relative;
+  z-index: 1;
+}
+
+.engagement-section {
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(46, 204, 113, 0.1));
+  border: 2px solid rgba(39, 174, 96, 0.25);
+  border-radius: 12px;
+  padding: 60px 40px;
+}
+
+.engagement-container {
+  max-width: 800px;
+}
+
+.engagement-text h3 {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.engagement-text p {
+  font-size: 18px;
+  color: var(--text);
+  opacity: 0.85;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.involvement-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.involvement-list li {
+  padding: 12px 0;
+  padding-left: 30px;
+  position: relative;
+  font-size: 16px;
+  color: var(--text);
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+.involvement-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #27AE60;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #27AE60, #2ECC71);
+  color: #fff;
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 12px 30px rgba(39, 174, 96, 0.25);
+}
+
+.contact-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(39, 174, 96, 0.32);
+}
+
+.contact-button:focus-visible,
+.contact-modal-close:focus-visible,
+.contact-secondary-button:focus-visible,
+.contact-submit-button:focus-visible,
+.contact-field input:focus-visible,
+.contact-field textarea:focus-visible {
+  outline: 3px solid rgba(46, 204, 113, 0.45);
+  outline-offset: 2px;
+}
+
+.contact-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(8, 15, 23, 0.72);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+}
+
+.contact-modal {
+  width: 100%;
+  max-width: 680px;
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 18px;
+  border: 1px solid rgba(39, 174, 96, 0.18);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+  padding: 30px;
+  position: relative;
+  outline: none;
+}
+
+.contact-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(127, 140, 141, 0.2);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.contact-modal-eyebrow {
+  margin: 0 0 8px 0;
+  color: #2ECC71;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact-modal h3 {
+  margin: 0 0 12px 0;
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 30px;
+}
+
+.contact-modal-description {
+  margin: 0 0 24px 0;
+  color: var(--text);
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.contact-field span {
+  opacity: 0.9;
+}
+
+.contact-field-full {
+  grid-column: 1 / -1;
+}
+
+.contact-field input,
+.contact-field textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(127, 140, 141, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  padding: 14px 16px;
+  font: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.contact-field textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: var(--text);
+  opacity: 0.45;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  border-color: rgba(46, 204, 113, 0.65);
+  box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  outline: none;
+}
+
+.contact-form-status {
+  margin: -4px 0 0 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(39, 174, 96, 0.12);
+  border: 1px solid rgba(39, 174, 96, 0.25);
+  color: var(--text);
+}
+
+.contact-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.contact-secondary-button,
+.contact-submit-button {
+  border: none;
+  border-radius: 999px;
+  padding: 13px 22px;
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-secondary-button {
+  background: rgba(127, 140, 141, 0.12);
+  color: var(--text);
+  border: 1px solid rgba(127, 140, 141, 0.2);
+}
+
+.contact-submit-button {
+  background: linear-gradient(135deg, #27AE60, #2ECC71);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(39, 174, 96, 0.25);
+}
+
+.contact-secondary-button:hover,
+.contact-submit-button:hover {
+  transform: translateY(-2px);
+}
+
+.affiliations-section {
+  margin: 60px 0;
+}
+
+.affiliations-title {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text);
+}
+
+.affiliations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.affiliation-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 28px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.affiliation-logo {
+  height: 72px;
+  width: auto;
+  display: block;
+  margin: 0 auto 18px auto;
+  object-fit: contain;
+}
+
+.affiliation-card h4 {
+  margin: 8px 0 12px 0;
+  font-size: 18px;
+  color: var(--text);
+}
+
+.affiliation-card p {
+  color: var(--text);
+  opacity: 0.85;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.affiliation-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #fbbf24; /* accent color (gold) */
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .outreach {
+    padding: 60px 20px;
+  }
+
+  .outreach .section-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+
+  .outreach .section-description {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+
+  .initiatives-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+
+  .initiative-card {
+    padding: 30px 20px;
+  }
+
+  .engagement-section {
+    padding: 40px 20px;
+  }
+
+  .engagement-text h3 {
+    font-size: 24px;
+  }
+
+  .engagement-text p {
+    font-size: 16px;
+  }
+
+  .involvement-list li {
+    font-size: 14px;
+  }
+
+  .contact-modal {
+    padding: 24px 20px 20px;
+  }
+
+  .contact-modal h3 {
+    font-size: 24px;
+    padding-right: 40px;
+  }
+
+  .contact-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-actions {
+    justify-content: stretch;
+  }
+
+  .contact-secondary-button,
+  .contact-submit-button {
+    width: 100%;
+  }
+}
+
