@@ -75,6 +75,68 @@
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
+.hero-countdown {
+  margin-bottom: 32px;
+  padding: 20px;
+  max-width: 560px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  background: rgba(10, 16, 28, 0.35);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.hero-countdown-label {
+  margin: 0 0 12px;
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #b9d7ff;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.countdown-value {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.countdown-unit {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.countdown-live {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
 .hero-cta {
   display: flex;
   gap: 20px;
@@ -164,6 +226,16 @@
 
   .hero-description {
     font-size: 16px;
+  }
+
+  .hero-countdown {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+
+
+  .countdown-value {
+    font-size: 26px;
   }
 
   .hero-visual {

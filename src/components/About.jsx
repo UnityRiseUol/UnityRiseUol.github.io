@@ -50,7 +50,7 @@ function About() {
 
         <div className="stats-grid">
           <div className="stat-card">
-            <div className="stat-number">10</div>
+            <div className="stat-number">25+</div>
             <div className="stat-label">Team Members</div>
           </div>
           <div className="stat-card">
@@ -58,12 +58,12 @@ function About() {
             <div className="stat-label">Successful Launches</div>
           </div>
           <div className="stat-card">
-            <div className="stat-number">6</div>
+            <div className="stat-number">6th</div>
             <div className="stat-label">Highest Finish</div>
           </div>
           <div className="stat-card">
-            <div className="stat-number">2500</div>
-            <div className="stat-label">Max Altitude (ft)</div>
+            <div className="stat-number">2500 ft</div>
+            <div className="stat-label">Max Altitude</div>
           </div>
         </div>
 
