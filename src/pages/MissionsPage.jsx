@@ -36,7 +36,7 @@ const timelineData = [
             <li><strong>LIFTSv2 Avionics Suite:</strong> Powering the flight was our custom-designed, advanced 3-stack PCB avionics system, ensuring precision control and monitoring throughout the launch profile.</li>
             <li><strong>PLOTSv1 Ground Station:</strong> Features a completely custom PCB-designed ground station delivering real-time telemetry, giving the team live tracking and data feeds from the launch pad to touchdown.</li>
             <li><strong>VEGA Rideshare Experiment:</strong> Our integrated "physical AI" payload successfully demonstrated real-time, edge-computed computer vision to scan agricultural fields below and and dynamically classify crops as healthy or unhealthy.</li>
-            <li><strong>Dual-Deployment Recovery:</strong> A robust, high-reliability* recovery sequence utilising a drogue ejection parachute charge at apogee, followed by an innovative, mechanical nose cone door deployment system to release the main chute.</li>
+            <li><strong>Dual-Deployment Recovery:</strong> A robust, high-reliability* recovery system utilising a drogue ejection parachute charge at apogee, followed by an innovative, mechanical nose cone door deployment system to release the main chute.</li>
             <li><strong>GPS Tracking:</strong> Redundant onboard GPS recovery modules ensured precise, rapid localization and retrieval of the vehicle post-landing.</li>
           </ul>
         </div>
