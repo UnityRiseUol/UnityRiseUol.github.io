@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" id="favicon" type="image/png" href="/ur_logo.png" />
+    <link rel="icon" id="favicon" type="image/png" href="/UR_Logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unity Rise</title>
     <script type="text/javascript">
@@ -19,20 +19,12 @@
       }(window.location))
     </script>
     <script>
+      // The favicon logic is now simplified since we use one logo.
+      // This script block can be removed if you only have one static favicon.
       const favicon = document.getElementById('favicon');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-
-      function updateFavicon(isDark) {
-        favicon.href = isDark ? '/ur_logo.png' : '/ur_logo_black.png';
-      }
-
-      // Set initial favicon
-      updateFavicon(prefersDark.matches);
-
-      // Listen for changes
-      prefersDark.addEventListener('change', (e) => updateFavicon(e.matches));
+      favicon.href = '/UR_Logo.png';
     </script>
-    <script type="module" crossorigin src="/assets/index-BTdI8MRf.js"></script>
+    <script type="module" crossorigin src="/assets/index-BFicb7ws.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-D-ygu7_W.css">
   </head>
   <body>
