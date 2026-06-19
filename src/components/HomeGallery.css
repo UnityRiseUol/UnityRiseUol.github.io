@@ -1,0 +1,134 @@
+.home-gallery-section {
+  padding: 80px 20px;
+  background: var(--bg);
+  position: relative;
+}
+
+.home-gallery-section .section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-gallery-section .section-title {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 60px;
+  color: var(--text);
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.home-gallery-section .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #4682B4, #6495ED);
+  border-radius: 2px;
+}
+
+.home-gallery-section .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.home-gallery-section .gallery-item {
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 16 / 9;
+  background: var(--card-bg, rgba(70, 130, 180, 0.05));
+  border: 1px solid rgba(70, 130, 180, 0.2);
+  cursor: pointer;
+}
+
+.home-gallery-section .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.home-gallery-section .gallery-item:hover img {
+  transform: scale(1.10);
+}
+
+.home-gallery-section .lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.home-gallery-section .lightbox-image {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.home-gallery-section .lightbox-close,
+.home-gallery-section .lightbox-prev,
+.home-gallery-section .lightbox-next {
+  position: absolute;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.home-gallery-section .lightbox-close:hover,
+.home-gallery-section .lightbox-prev:hover,
+.home-gallery-section .lightbox-next:hover {
+  opacity: 0.7;
+}
+
+.home-gallery-section .lightbox-close {
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+}
+
+.home-gallery-section .lightbox-prev {
+  left: 20px;
+}
+
+.home-gallery-section .lightbox-next {
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .home-gallery-section {
+    padding: 60px 20px;
+  }
+
+  .home-gallery-section .section-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .home-gallery-section .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-gallery-section .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}

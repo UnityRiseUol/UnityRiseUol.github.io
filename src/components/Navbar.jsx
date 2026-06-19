@@ -1,5 +1,6 @@
 import './Navbar.css'
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const [isDark, setIsDark] = useState(() => {
@@ -84,14 +85,14 @@ function Navbar() {
   return (
     <nav className="navbar" ref={navbarRef}>
       <div className="navbar-container">
-        <a href="#" className="navbar-brand" aria-label="Unity Rise home" onClick={closeMenu}>
+        <Link to="/" className="navbar-brand" aria-label="Unity Rise home" onClick={closeMenu}>
           <img
             src={logoSrc}
             className="navbar-brand-logo"
             alt="Unity Rise logo"
           />
           <span className="navbar-logo">Unity Rise</span>
-        </a>
+        </Link>
         <button
           type="button"
           className="nav-toggle"
@@ -107,19 +108,25 @@ function Navbar() {
 
         <ul className={`nav-menu ${isMenuOpen ? 'open' : ''}`} id="primary-navigation">
           <li className="nav-item">
-            <a href="#about" className="nav-link" onClick={closeMenu}>About</a>
+            <Link to="/#about" className="nav-link" onClick={closeMenu}>About</Link>
           </li>
           <li className="nav-item">
-            <a href="#projects" className="nav-link" onClick={closeMenu}>Projects</a>
+            <Link to="/projects" className="nav-link" onClick={closeMenu}>Projects</Link>
           </li>
           <li className="nav-item">
-            <a href="#sponsorships" className="nav-link" onClick={closeMenu}>Sponsorships</a>
+            <Link to="/missions" className="nav-link" onClick={closeMenu}>Missions</Link>
           </li>
           <li className="nav-item">
-            <a href="#outreach" className="nav-link" onClick={closeMenu}>Outreach</a>
+            <Link to="/blog" className="nav-link" onClick={closeMenu}>Blog</Link>
           </li>
           <li className="nav-item">
-            <a href="#contact" className="nav-link" onClick={closeMenu}>Contact Us</a>
+            <Link to="/sponsorships" className="nav-link" onClick={closeMenu}>Sponsorships</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/#outreach" className="nav-link" onClick={closeMenu}>Outreach</Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/#contact" className="nav-link" onClick={closeMenu}>Contact Us</Link>
           </li>
         </ul>
         <button type="button" className="theme-toggle" onClick={toggleTheme} aria-label="Toggle dark mode">
@@ -146,5 +153,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
-
+export default Navbar;

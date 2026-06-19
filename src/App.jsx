@@ -1,26 +1,30 @@
-import './App.css'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Projects from './components/Projects'
-import Sponsorships from './components/Sponsorships'
-import Outreach from './components/Outreach'
-import Footer from './components/Footer'
+import { Routes, Route } from 'react-router-dom';
+import useScrollToHash from './hooks/useScrollToHash';
+import './App.css';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import ProjectsPage from './pages/ProjectsPage';
+import MissionsPage from './pages/MissionsPage';
+import BlogPage from './pages/BlogPage';
+import SponsorshipsPage from './pages/SponsorshipsPage';
 
 function App() {
+  useScrollToHash();
+
   return (
     <>
       <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Sponsorships />
-        <Outreach />
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/missions" element={<MissionsPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/sponsorships" element={<SponsorshipsPage />} />
+      </Routes>
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

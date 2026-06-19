@@ -3,7 +3,7 @@ import { FaRocket, FaAward, FaCogs } from 'react-icons/fa'
 
 function About() {
   return (
-    <section className="about">
+    <section className="about" id="about">
       <div className="section-container">
         <h2 className="section-title">About Unity Rise</h2>
 
@@ -54,27 +54,16 @@ function About() {
             <div className="stat-label">Team Members</div>
           </div>
           <div className="stat-card">
-            <div className="stat-number">2</div>
+            <div className="stat-number">3</div>
             <div className="stat-label">Successful Launches</div>
           </div>
           <div className="stat-card">
-            <div className="stat-number">6th</div>
+            <div className="stat-number">1st</div>
             <div className="stat-label">Highest Finish</div>
           </div>
           <div className="stat-card">
             <div className="stat-number">2500 ft</div>
             <div className="stat-label">Max Altitude</div>
-          </div>
-        </div>
-
-        <div className="gallery-section">
-          <h3 className="gallery-title">Gallery</h3>
-          <div className="gallery-grid">
-            {[1, 2, 3, 4, 5, 6].map((num) => (
-              <div key={num} className="gallery-item">
-                <img src={`/gallery${num}.jpg`} alt={`Gallery image ${num}`} />
-              </div>
-            ))}
           </div>
         </div>
       </div>
@@ -83,4 +72,3 @@ function About() {
 }
 
 export default About
-

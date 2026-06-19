@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import './Hero.css'
 
 const launchDate = new Date('2026-06-17T00:00:00')
@@ -61,11 +62,11 @@ function Hero() {
                 </div>
               </div>
             ) : (
-              <p className="countdown-live">Launch day is here — see you on 17 June 2026.</p>
+              <p className="countdown-live">TBC</p>
             )}
           </div>
           <div className="hero-cta">
-            <a href="#projects" className="cta-button primary">View Our Projects</a>
+            <Link to="/missions" className="cta-button primary">View Our Missions</Link>
             <a href="#contact" className="cta-button secondary">Get Involved</a>
           </div>
         </div>
@@ -78,4 +79,3 @@ function Hero() {
 }
 
 export default Hero
-

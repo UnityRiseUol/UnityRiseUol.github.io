@@ -5,21 +5,21 @@ function Projects() {
   const projects = [
     {
       name: 'Banana Split',
-      description: 'Our flagship two-stage rocket designed for high altitude records and precision navigation.',
-      highlights: ['Two-stage design', '5km+ altitude', 'GPS recovery'],
+      description: 'Our first two-stage rocket designed for high altitude records and precision navigation.',
+      highlights: ['Two-stage design', '5km+ altitude'],
       status: '8th Place'
     },
     {
       name: 'Pulsar',
       description: 'Single-stage rocket focused on stability and reliability for consistent performance.',
-      highlights: ['Single-stage', 'Hybrid propulsion', 'Parachute recovery'],
+      highlights: ['Single-stage', 'Novel Parachute Recovery Method'],
       status: '6th Place'
     },
     {
       name: 'PL-26',
-      description: 'Advanced avionics platform with real-time telemetry and autonomous recovery systems.',
-      highlights: ['Advanced telemetry', 'AI recovery', 'Real-time tracking'],
-      status: 'Development'
+      description: 'Our latest rocket with an advanced avionics platform with real-time telemetry and autonomous recovery systems.',
+      highlights: ['Advanced Custom Avionics System', 'AI Computer Vision Rideshare Experiment', 'Real-Time Ground Station Tracking', 'Dual-Deployment Recovery System*'],
+      status: '1st Place'
     }
   ]
 

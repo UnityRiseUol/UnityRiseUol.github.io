@@ -2,9 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" id="favicon" type="image/png" href="/ur_logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>unityriseuol-github-io</title>
+    <title>Unity Rise</title>
+    <script>
+      const favicon = document.getElementById('favicon');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function updateFavicon(isDark) {
+        favicon.href = isDark ? '/ur_logo.png' : '/ur_logo_black.png';
+      }
+
+      // Set initial favicon
+      updateFavicon(prefersDark.matches);
+
+      // Listen for changes
+      prefersDark.addEventListener('change', (e) => updateFavicon(e.matches));
+    </script>
   </head>
   <body>
     <div id="root"></div>
