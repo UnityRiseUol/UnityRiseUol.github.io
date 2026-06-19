@@ -20,7 +20,7 @@ const timelineData = [
       preview: (
         <ul>
           <li><strong>1st Place Championship Trophy</strong> – Overall winners of the competition out of 300+ participants in the UK.</li>
-          <li><strong>Best Rideshare Payload Award</strong> – Recognising the exceptional engineering and execution of our onboard experiment.</li>
+          <li><strong>Best Rideshare Payload Award</strong> – Recognising the exceptional engineering and execution of our avionics system, ground station and rideshare experiment..</li>
           <li><strong>Best Public Engagement Award</strong> – Honoring our team's commitment to sharing the excitement of rocketry with the wider community.</li>
         </ul>
       ),
@@ -91,7 +91,7 @@ const timelineData = [
           <div>
             <ul>
               <li><strong>8th Place Overall</strong> – Outperforming teams from across the UK in a highly competitive field.</li>
-              <li><strong>Best Airframe</strong> – Recognising our unique, highly innovative custom airframe judged as the the best airframe in the competition.</li>
+                <li><strong>Most Novel Deployment Award</strong> – Recognising our unique, highly innovative mechanical recovery design judged as the most creative solution in the competition.</li>
             </ul>
           </div>
       )

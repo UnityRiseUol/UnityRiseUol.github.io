@@ -80,7 +80,8 @@ function Navbar() {
 
   const closeMenu = () => setIsMenuOpen(false)
 
-  const logoSrc = isDark ? '/ur_logo.png' : '/ur_logo_black.png'
+  // Use the same logo for both themes as requested
+  const logoSrc = '/UR_Logo.png';
 
   return (
     <nav className="navbar" ref={navbarRef}>
