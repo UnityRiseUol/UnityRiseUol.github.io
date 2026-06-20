@@ -1,5 +1,6 @@
-import './About.css'
-import { FaRocket, FaAward, FaCogs } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
+import './About.css';
+import { FaRocket, FaAward, FaCogs } from 'react-icons/fa';
 
 function About() {
   return (
@@ -71,4 +72,4 @@ function About() {
   )
 }
 
-export default About
+export default About;

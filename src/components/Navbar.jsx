@@ -109,7 +109,7 @@ function Navbar() {
 
         <ul className={`nav-menu ${isMenuOpen ? 'open' : ''}`} id="primary-navigation">
           <li className="nav-item">
-            <Link to="/#about" className="nav-link" onClick={closeMenu}>About</Link>
+            <Link to="/about" className="nav-link" onClick={closeMenu}>About</Link>
           </li>
           <li className="nav-item">
             <Link to="/projects" className="nav-link" onClick={closeMenu}>Projects</Link>

@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import MissionsPage from './pages/MissionsPage';
 import BlogPage from './pages/BlogPage';
@@ -17,6 +18,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/missions" element={<MissionsPage />} />
         <Route path="/blog" element={<BlogPage />} />
