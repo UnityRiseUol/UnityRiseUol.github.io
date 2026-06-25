@@ -15,6 +15,7 @@ const timelineData = [
     title: 'PL-26',
     competition: 'UKSEDS NRC',
     logo: '/nrc_logo.png',
+    videoId: 'oFqZ_HMK2UE',
     images: ['/gallery7.jpg', '/gallery8.jpg', '/gallery9.jpg', '/gallery10.jpg', '/gallery11.jpg'],
     highlights: {
       preview: (
@@ -48,6 +49,7 @@ const timelineData = [
     title: 'PULSAR',
     competition: 'UKSEDS NRC',
     logo: '/nrc_logo.png',
+    videoId: 'alMkTgpcnv4',
     images: ['/gallery4.jpg', '/gallery5.jpg', '/gallery6.jpg'],
     highlights: {
       preview: (
@@ -139,6 +141,18 @@ const MissionsPage = () => {
                 <img src={item.logo} alt={`${item.competition} logo`} className="competition-logo" />
                 <p className="competition-name">{item.competition}</p>
               </div>
+
+              {item.videoId && (
+                <div className="video-wrapper">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${item.videoId}`}
+                    title="YouTube video player"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              )}
 
               {item.title !== 'Name TBC' && (
                 <>

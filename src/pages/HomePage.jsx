@@ -2,6 +2,7 @@ import Hero from '../components/Hero';
 import Outreach from '../components/Outreach';
 import HomeGallery from '../components/HomeGallery';
 import About from '../components/About';
+import VideoSection from '../components/VideoSection';
 
 const HomePage = () => {
   return (
@@ -9,6 +10,7 @@ const HomePage = () => {
       <Hero />
       <About />
       <HomeGallery />
+      <VideoSection />
       <Outreach />
     </main>
   );
