@@ -29,12 +29,12 @@
   align-items: center;
   gap: 40px;
   flex-wrap: wrap;
-  margin-bottom: 120px; /* Increased margin to push CTA down */
+  margin-bottom: 120px;
 }
 
 .sponsor-card {
   display: block;
-  padding: 40px; /* Increased padding */
+  padding: 40px;
   background: var(--card-bg, #fff);
   border-radius: 12px;
   border: 1px solid var(--border-color, #eee);
@@ -46,42 +46,60 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.sponsor-logo {
-  height: 100px; /* Increased height */
-  max-width: 350px; /* Increased max-width */
+.sponsor-logo, .sponsor-card svg {
+  height: 100px;
+  max-width: 350px;
   object-fit: contain;
 }
 
-/* Invert logo color in dark mode if it's mostly black */
-[data-theme="dark"] .sponsor-logo.invert-dark {
-  filter: invert(1) grayscale(1) brightness(2);
+/* Hide dark theme logo by default */
+.logo-dark-theme {
+  display: none;
+}
+
+/* When dark mode is active, hide the light logo and show the dark one */
+[data-theme="dark"] .logo-light-theme {
+  display: none;
+}
+
+[data-theme="dark"] .logo-dark-theme {
+  display: block;
+}
+
+/* Style for the Altium logo text */
+.altium-text {
+  fill: #000; /* Default color for light mode */
+}
+
+[data-theme="dark"] .altium-text {
+  fill: #fff; /* White color for dark mode */
 }
 
 .sponsorship-cta {
-  padding: 40px 25px; /* Reduced padding */
+  padding: 40px 25px;
   background: var(--card-bg, rgba(70, 130, 180, 0.05));
   border-radius: 12px;
   border: 1px solid var(--border-color, #eee);
-  max-width: 600px; /* Reduced max-width */
-  margin: 0 auto; /* Center the CTA */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .sponsorship-cta h3 {
   font-family: 'Orbitron', system-ui, sans-serif;
-  font-size: 1.5rem; /* Reduced font size */
+  font-size: 1.5rem;
   margin-bottom: 15px;
 }
 
 .sponsorship-cta p {
   color: var(--text-secondary);
   margin-bottom: 30px;
-  font-size: 0.9rem; /* Reduced font size */
+  font-size: 0.9rem;
 }
 
 .sponsorship-cta .cta-button {
   background: var(--accent);
   color: #000; /* Black text for light mode */
-  padding: 12px 25px; /* Reduced padding */
+  padding: 12px 25px;
   border-radius: 8px;
   text-decoration: none;
   font-weight: bold;
@@ -93,7 +111,7 @@
 }
 
 .sponsorship-cta .cta-button:hover {
-  background: #4682B4; /* A slightly darker shade for hover */
+  background: #4682B4;
 }
 
 @media (max-width: 768px) {
@@ -105,7 +123,7 @@
     font-size: 36px;
   }
 
-  .sponsor-logo {
-    height: 80px; /* Adjusted for mobile */
+  .sponsor-logo, .sponsor-card svg {
+    height: 80px;
   }
 }

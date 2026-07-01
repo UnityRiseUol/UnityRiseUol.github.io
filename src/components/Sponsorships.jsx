@@ -1,24 +1,18 @@
 import './Sponsorships.css';
+import AltiumLogo from './AltiumLogo';
 
 function Sponsorships() {
   const sponsors = [
     {
-      name: 'University of Liverpool',
-      logo: '/UoL - Logo - CMYK.png',
-      url: 'https://www.liverpool.ac.uk/',
-      invertInDarkMode: false
-    },
-    {
-      name: 'LASER',
-      logo: '/laser_logo.png',
-      url: 'https://laseruol.space/',
-      invertInDarkMode: false
-    },
-    {
       name: 'Altium',
-      logo: '/AD-logo-horizontal-BLK.svg',
+      component: <AltiumLogo />,
       url: 'https://www.altium.com/',
-      invertInDarkMode: true
+    },
+    {
+      name: 'PTC',
+      url: 'https://www.ptc.com/',
+      logoLight: '/ptc_master_logo_CMYK_color.svg',
+      logoDark: '/ptc_master_logo_CMYK_KO-gr.svg',
     }
   ];
 
@@ -33,11 +27,9 @@ function Sponsorships() {
         <div className="sponsors-grid">
           {sponsors.map((sponsor, index) => (
             <a key={index} href={sponsor.url} target="_blank" rel="noopener noreferrer" className="sponsor-card">
-              <img 
-                src={sponsor.logo} 
-                alt={`${sponsor.name} logo`} 
-                className={`sponsor-logo ${sponsor.invertInDarkMode ? 'invert-dark' : ''}`} 
-              />
+              {sponsor.component}
+              {sponsor.logoLight && <img src={sponsor.logoLight} alt={`${sponsor.name} logo`} className="sponsor-logo logo-light-theme" />}
+              {sponsor.logoDark && <img src={sponsor.logoDark} alt={`${sponsor.name} logo`} className="sponsor-logo logo-dark-theme" />}
             </a>
           ))}
         </div>
