@@ -86,14 +86,14 @@ const timelineData = [
       preview: (
           <ul>
             <li><strong>8th Place Overall</strong> – Outperforming teams from across the UK in a highly competitive field.</li>
-            <li><strong>Most Novel Deployment Award</strong> – Recognising our unique, highly innovative mechanical recovery design judged as the most creative solution in the competition.</li>
+            <li><strong>Best Airframe Award</strong> – Recognising our unique, highly innovative airframe design judged as the best in the competition.</li>
           </ul>
       ),
       full: (
           <div>
             <ul>
               <li><strong>8th Place Overall</strong> – Outperforming teams from across the UK in a highly competitive field.</li>
-                <li><strong>Most Novel Deployment Award</strong> – Recognising our unique, highly innovative mechanical recovery design judged as the most creative solution in the competition.</li>
+                <li><strong>Best Airframe Award</strong> –  Recognising our unique, highly innovative airframe design judged as the best in the competition.</li>
             </ul>
           </div>
       )
