@@ -15,7 +15,7 @@ function Sponsorships() {
       invertInDarkMode: false
     },
     {
-      name: 'Arrow Devices',
+      name: 'Altium',
       logo: '/AD-logo-horizontal-BLK.svg',
       url: 'https://www.altium.com/',
       invertInDarkMode: true
