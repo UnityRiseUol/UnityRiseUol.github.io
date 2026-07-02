@@ -4,7 +4,6 @@ import { FaInstagram } from 'react-icons/fa';
 const InstagramSection = () => {
   const instagramUrl = "https://www.instagram.com/uol.unity.rise";
 
-  // Placeholder images - you can replace these with actual post screenshots
   const placeholderImages = [
     '/gallery1.jpg',
     '/gallery4.jpg',

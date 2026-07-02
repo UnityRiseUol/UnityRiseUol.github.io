@@ -54,6 +54,23 @@ function Projects() {
         software: ['Python', 'C++', 'PySide6 (Qt)', 'PyQtGraph', 'Matplotlib', 'Leaflet.js', 'PySerial', 'Git', 'Linux (Raspberry Pi OS)'],
         hardware: ['KiCad', 'Raspberry Pi 5', 'Adafruit Feather RP2040 RFM95', 'UART']
       }
+    },
+    {
+      name: 'PATv1',
+      description: "Our first dedicated Postflight Analysis Tracker (PAT) for reviewing and analysing post-launch flight data from the PL-26's LIFTSv2 avionics. It provides synchronised playback of telemetry, video and geospatial data.",
+      highlights: [
+        'Dynamic 2D/3D Data Visualisation',
+        'Synchronised Video & Telemetry Playback',
+        'Offline Geospatial Tracking (Leaflet.js)',
+        'Interactive Qt-based GUI (PySide6)',
+        'Multi-threaded Architecture'
+      ],
+      status: 'PL-26',
+      images: ['PAT_Sample_IMG.png'],
+      techStack: {
+        software: ['Python', 'PySide6 (Qt)', 'PyQtGraph', 'Matplotlib', 'Leaflet.js', 'OpenCV (cv2)', 'Git', 'Linux', 'Windows', 'MacOS'],
+        hardware: ['Laptop']
+      }
     }
   ];
 

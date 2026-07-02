@@ -1,7 +1,15 @@
-import './Footer.css'
+import './Footer.css';
+import { FaInstagram, FaTiktok, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
 function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
+
+  const socialMedia = [
+    { name: 'Instagram', url: 'https://instagram.com/uol.unity.rise', icon: <FaInstagram /> },
+    { name: 'TikTok', url: 'https://tiktok.com/@unity.rise', icon: <FaTiktok /> },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/company/laser-liverpool/posts/?feedView=all', icon: <FaLinkedin /> },
+    { name: 'YouTube', url: 'https://youtube.com/@unityriseuol?si=-dAl0cNml46-dW6S', icon: <FaYoutube /> },
+  ];
 
   return (
     <footer className="footer" id="contact">
@@ -11,11 +19,11 @@ function Footer() {
             <h3>Unity Rise</h3>
             <p>Engineering the future of aerospace at the University of Liverpool</p>
             <div className="social-links">
-              <a href="#" aria-label="Facebook" className="social-icon">f</a>
-              <a href="#" aria-label="Twitter" className="social-icon">𝕏</a>
-              <a href="#" aria-label="Instagram" className="social-icon">📷</a>
-              <a href="#" aria-label="LinkedIn" className="social-icon">in</a>
-              <a href="#" aria-label="YouTube" className="social-icon">▶</a>
+              {socialMedia.map((social) => (
+                <a key={social.name} href={social.url} aria-label={social.name} className="social-icon" target="_blank" rel="noopener noreferrer">
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
 
@@ -74,8 +82,7 @@ function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
-
+export default Footer;

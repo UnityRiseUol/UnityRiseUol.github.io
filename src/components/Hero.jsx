@@ -40,7 +40,7 @@ function Hero() {
             and Mach-X Rocketry Championship in the coming year.
           </p>
           <div className="hero-countdown" aria-label="Countdown to our next launch on 1 July 2027">
-            <p className="hero-countdown-label">Next launch</p>
+            <p className="hero-countdown-label">Next Launch T-Minus:</p>
             {timeRemaining ? (
               <div className="countdown-grid">
                 <div className="countdown-item">
