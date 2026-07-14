@@ -33,12 +33,16 @@
 }
 
 .sponsor-card {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 40px;
   background: var(--card-bg, #fff);
   border-radius: 12px;
   border: 1px solid var(--border-color, #eee);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 180px;
+  width: 430px;
 }
 
 .sponsor-card:hover {
@@ -73,6 +77,17 @@
 
 [data-theme="dark"] .altium-text {
   fill: #fff; /* White color for dark mode */
+}
+
+/* Wrapper for Notion logo to handle dark mode background */
+.notion-logo-wrapper {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: transparent; /* No background in light mode */
+}
+
+[data-theme="dark"] .notion-logo-wrapper {
+  background-color: #fff; /* White background in dark mode */
 }
 
 .sponsorship-cta {
@@ -121,6 +136,11 @@
 
   .sponsorships .section-title {
     font-size: 36px;
+  }
+
+  .sponsor-card {
+    width: 100%;
+    height: 160px;
   }
 
   .sponsor-logo, .sponsor-card svg {

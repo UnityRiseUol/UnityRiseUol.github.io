@@ -13,6 +13,12 @@ function Sponsorships() {
       url: 'https://www.ptc.com/',
       logoLight: '/ptc_master_logo_CMYK_color.svg',
       logoDark: '/ptc_master_logo_CMYK_KO-gr.svg',
+    },
+    {
+      name: 'Notion',
+      logo: '/notion.svg',
+      url: 'https://www.notion.so/',
+      isNotion: true,
     }
   ];
 
@@ -28,8 +34,17 @@ function Sponsorships() {
           {sponsors.map((sponsor, index) => (
             <a key={index} href={sponsor.url} target="_blank" rel="noopener noreferrer" className="sponsor-card">
               {sponsor.component}
-              {sponsor.logoLight && <img src={sponsor.logoLight} alt={`${sponsor.name} logo`} className="sponsor-logo logo-light-theme" />}
-              {sponsor.logoDark && <img src={sponsor.logoDark} alt={`${sponsor.name} logo`} className="sponsor-logo logo-dark-theme" />}
+              {sponsor.isNotion ? (
+                <div className="notion-logo-wrapper">
+                  <img src={sponsor.logo} alt={`${sponsor.name} logo`} className="sponsor-logo" />
+                </div>
+              ) : (
+                <>
+                  {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} className="sponsor-logo" />}
+                  {sponsor.logoLight && <img src={sponsor.logoLight} alt={`${sponsor.name} logo`} className="sponsor-logo logo-light-theme" />}
+                  {sponsor.logoDark && <img src={sponsor.logoDark} alt={`${sponsor.name} logo`} className="sponsor-logo logo-dark-theme" />}
+                </>
+              )}
             </a>
           ))}
         </div>
