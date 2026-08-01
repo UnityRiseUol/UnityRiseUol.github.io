@@ -1,12 +1,12 @@
 import './Sponsorships.css';
-import AltiumLogo from './AltiumLogo';
 
 function Sponsorships() {
   const sponsors = [
     {
       name: 'Altium',
-      component: <AltiumLogo />,
       url: 'https://www.altium.com/',
+      logoLight: '/Altium - Black (Scaled).png',
+      logoDark: '/Altium - White.png',
     },
     {
       name: 'PTC',
@@ -15,10 +15,15 @@ function Sponsorships() {
       logoDark: '/ptc_master_logo_CMYK_KO-gr.svg',
     },
     {
-      name: 'Notion',
-      logo: '/notion.svg',
-      url: 'https://www.notion.so/',
-      isNotion: true,
+      name: 'Ansys',
+      url: 'https://www.ansys.com/',
+      logoLight: '/ansys_part_of_synopsys_blk.svg',
+      logoDark: '/ansys_part_of_synopsys_wht.svg',
+    },
+    {
+      name: 'Easy Composites',
+      logo: '/easy-composites-logo-simple-curves.jpg',
+      url: 'https://www.easycomposites.co.uk/',
     }
   ];
 
@@ -32,19 +37,10 @@ function Sponsorships() {
 
         <div className="sponsors-grid">
           {sponsors.map((sponsor, index) => (
-            <a key={index} href={sponsor.url} target="_blank" rel="noopener noreferrer" className="sponsor-card">
-              {sponsor.component}
-              {sponsor.isNotion ? (
-                <div className="notion-logo-wrapper">
-                  <img src={sponsor.logo} alt={`${sponsor.name} logo`} className="sponsor-logo" />
-                </div>
-              ) : (
-                <>
-                  {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} className="sponsor-logo" />}
-                  {sponsor.logoLight && <img src={sponsor.logoLight} alt={`${sponsor.name} logo`} className="sponsor-logo logo-light-theme" />}
-                  {sponsor.logoDark && <img src={sponsor.logoDark} alt={`${sponsor.name} logo`} className="sponsor-logo logo-dark-theme" />}
-                </>
-              )}
+            <a key={index} href={sponsor.url} target="_blank" rel="noopener noreferrer" className={`sponsor-card ${sponsor.name === 'Altium' ? 'altium-card' : ''}`}>
+              {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} className="sponsor-logo" />}
+              {sponsor.logoLight && <img src={sponsor.logoLight} alt={`${sponsor.name} logo`} className="sponsor-logo logo-light-theme" />}
+              {sponsor.logoDark && <img src={sponsor.logoDark} alt={`${sponsor.name} logo`} className="sponsor-logo logo-dark-theme" />}
             </a>
           ))}
         </div>

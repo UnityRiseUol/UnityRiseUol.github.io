@@ -92,7 +92,7 @@
 
 .sponsorship-cta {
   padding: 40px 25px;
-  background: var(--card-bg, rgba(70, 130, 180, 0.05));
+  background: var(--card-bg, rgba(70, 130, 180,.05));
   border-radius: 12px;
   border: 1px solid var(--border-color, #eee);
   max-width: 600px;
