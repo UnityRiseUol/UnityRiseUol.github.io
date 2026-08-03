@@ -141,9 +141,11 @@
   .sponsor-card {
     width: 100%;
     height: 160px;
+    padding: 20px;
   }
 
   .sponsor-logo, .sponsor-card svg {
     height: 80px;
+    max-width: 90%;
   }
 }
