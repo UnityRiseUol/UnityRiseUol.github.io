@@ -1,7 +1,5 @@
 import './AboutPage.css';
 
-// Newest season first — each entry renders its own "Meet the Team" section.
-// A season can appear more than once, one entry per competition.
 const teamSeasons = [
   {
     season: "26/27",
@@ -9,13 +7,13 @@ const teamSeasons = [
     image: null,
     members: [
       { name: "Joseph Wood", role: "Team Lead", degree: "PhD Electrical Engineering and Electronics", year: "1st Year" },
-      { name: "Juny Suh", role: "Vice Team Lead", degree: "BEng Aerospace Engineering", year: "3rd Year" },
+      { name: "Juny Suh", role: "Vice Team Lead", degree: "MEng Aerospace Engineering", year: "3rd Year" },
       { name: "Karl King", role: "Launch Vehicle Lead", degree: "MEng Aerospace Engineering", year: "4th Year" },
       { name: "Thiruwaran Kalvin", role: "Avionics Lead", degree: "BSc Computer Science With Artificial Intelligence", year: "3rd Year" },
       { name: "Ben Cooke", role: "CanSat Lead", degree: "BEng Computer Science & Electronic Engineering", year: "3rd Year" },
       { name: "Matteo Venuti", role: "Avionics Engineer", degree: "MEng Computer Science & Electronic Engineering", year: "4th Year" },
       { name: "Matthew Barnes", role: "Aerospace Engineer", degree: "MEng Aerospace Engineering", year: "4th Year" },
-      { name: "Inga Panko", role: "Aerospace Engineer", degree: "Eng Aerospace Engineering", year: "3rd Year" },
+      { name: "Inga Panko", role: "Aerospace Engineer", degree: "MEng Aerospace Engineering", year: "3rd Year" },
       { name: "Travis Totney", role: "Aerospace Engineer", degree: "BEng Aerospace Engineering", year: "3rd Year" },
       { name: "Leah Shibin", role: "Aerospace Engineer", degree: "BEng Aerospace Engineering", year: "3rd Year" },
       { name: "Muhammad Khan", role: "Aerospace Engineer", degree: "BEng Aerospace Engineering", year: "3rd Year" },
@@ -119,6 +117,7 @@ function AboutPage() {
           technical and team awards includes:
         </p>
         <ul>
+          <li>NRC Championship Overall Winners (2026)</li>
           <li>Best Rideshare Payload Award (2026)</li>
           <li>Public Engagement Award (2026)</li>
           <li>Most Novel Deployment Award (2025)</li>
