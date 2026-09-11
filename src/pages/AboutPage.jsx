@@ -1,178 +1,175 @@
-import { Link } from "react-router-dom";
 import './AboutPage.css';
 
+// Newest season first — each entry renders its own "Meet the Team" section.
+// A season can appear more than once, one entry per competition.
+const teamSeasons = [
+  {
+    season: "26/27",
+    competition: "MACH-X",
+    image: null,
+    members: [
+      { name: "Joseph Wood", role: "Team Lead", degree: "PhD Electrical Engineering and Electronics", year: "1st Year" },
+      { name: "Juny Suh", role: "Vice Team Lead", degree: "BEng Aerospace Engineering", year: "3rd Year" },
+      { name: "Karl King", role: "Launch Vehicle Lead", degree: "MEng Aerospace Engineering", year: "4th Year" },
+      { name: "Thiruwaran Kalvin", role: "Avionics Lead", degree: "BSc Computer Science With Artificial Intelligence", year: "3rd Year" },
+      { name: "Ben Cooke", role: "CanSat Lead", degree: "BEng Computer Science & Electronic Engineering", year: "3rd Year" },
+      { name: "Matteo Venuti", role: "Avionics Engineer", degree: "MEng Computer Science & Electronic Engineering", year: "4th Year" },
+      { name: "Matthew Barnes", role: "Aerospace Engineer", degree: "MEng Aerospace Engineering", year: "4th Year" },
+      { name: "Inga Panko", role: "Aerospace Engineer", degree: "Eng Aerospace Engineering", year: "3rd Year" },
+      { name: "Travis Totney", role: "Aerospace Engineer", degree: "BEng Aerospace Engineering", year: "3rd Year" },
+      { name: "Leah Shibin", role: "Aerospace Engineer", degree: "BEng Aerospace Engineering", year: "3rd Year" },
+      { name: "Muhammad Khan", role: "Aerospace Engineer", degree: "BEng Aerospace Engineering", year: "3rd Year" },
+      { name: "Neelam Dhariwal", role: "Aerospace Engineer", degree: "BEng Aerospace Engineering", year: "3rd Year" }
+    ],
+  },
+  {
+    season: "26/27",
+    competition: "NRC TBC",
+    image: null,
+    members: [
+    ],
+  },
+  {
+    season: "25/26",
+    competition: "NRC",
+    image: "/team.jpg",
+    members: [
+      { name: "Inga Panko", role: "Team / Aerodynamics Lead", degree: "BEng Aerospace Engineering", year: "2nd Year" },
+      { name: "Thiruwaran Kalvin", role: "Vice Team / Ground Station & Payload Lead", degree: "BSc Computer Science With Artificial Intelligence", year: "2nd Year" },
+      { name: "Juny Suh", role: "Propulsion / Simulations Lead", degree: "BEng Aerospace Engineering", year: "2nd Year" },
+      { name: "Karl King", role: "Chief Advisor", degree: "MEng Aerospace Engineering", year: "3rd Year" },
+      { name: "Hildah Namulondo", role: "CAD Lead", degree: "BEng Aerospace Engineering", year: "2nd Year" },
+      { name: "Leah Shibin", role: "CAD / Materials and Manufacturing / Recovery", degree: "BEng Aerospace Engineering", year: "2nd Year" },
+      { name: "A'isha Ayyub", role: "Aerodynamics / Manufacturing / Testing", degree: "MEng Aerospace Engineering", year: "2nd Year" },
+      { name: "Sanjo Peeter Silijan", role: "Recovery Lead", degree: "MEng Aerospace Engineering", year: "2nd Year" },
+      { name: "Joseph Wood", role: "Electronics / Avionics Lead", degree: "MEng Avionic Systems", year: "3rd Year" },
+      { name: "Adam Smart", role: "Programming", degree: "BSc Computer Science", year: "2nd Year" },
+    ],
+  },
+  {
+    season: "24/25",
+    competition: "NRC",
+    image: "/gallery4.jpg",
+    members: [
+      { name: "Karl King", role: "Team Lead", degree: "MEng Aerospace Engineering", year: "2nd Year" },
+      { name: "Eissa Hussain", role: "CAD Lead", degree: "MEng Aerospace Engineering", year: "2nd Year" },
+      { name: "Matthew Barnes", role: "Manufacturing Lead / CAD", degree: "BEng Aerospace Engineering", year: "2nd Year" },
+      { name: "Hildah Namulondo", role: "Aerospace Engineer / Testing", degree: "BEng Aerospace Engineering", year: "1st Year" },
+      { name: "Juny Suh", role: "Simulations Lead", degree: "BEng Aerospace Engineering", year: "1st Year" },
+      { name: "Leah Shibin", role: "Aerospace Engineer / Testing", degree: "BEng Aerospace Engineering", year: "1st Year" },
+      { name: "Hugh Rawes", role: "Recovery", degree: "BEng Aerospace Engineering", year: "2nd Year" },
+      { name: "Joseph Wood", role: "Avionics Lead", degree: "MEng Avionic Systems", year: "2nd Year" },
+      { name: "Thiruwaran Kalvin", role: "Programming Lead", degree: "BSc Computer Science With Artificial Intelligence", year: "1st Year" },
+      { name: "Adam Smart", role: "Programming", degree: "BSc Computer Science", year: "1st Year" },
+    ],
+  },
+  {
+    season: "23/24",
+    competition: "NRC",
+    image: "/gallery1.jpg",
+    members: [
+      { name: "Natasha Cooper", role: "Founder / Team Lead", degree: "MEng Aerospace Engineering", year: "3rd Year" },
+      { name: "Karl King", role: "Vice Team Lead", degree: "MEng Aerospace Engineering", year: "1st Year" },
+    ],
+  },
+];
+
 function AboutPage() {
-  // 2025/2026 Team
-  const teamMembers2526 = [
-    { name: "Inga Panko", role: "Team / Aerodynamics Lead", degree: "Aerospace Engineering", year: "2nd Year" },
-    { name: "Thiruwaran Kalvin", role: "Vice Team / Ground Station & Payload Lead", degree: "Computer Science", year: "2nd Year" },
-    { name: "Juny Suh", role: "Propulsion / Simulations Lead", degree: "Aerospace Engineering", year: "2nd Year" },
-    { name: "Karl King", role: "Chief Advisior ", degree: "Aerospace Engineering", year: "3rd Year" },
-    { name: "Hildah Namulondo", role: "CAD Lead", degree: "Aerospace Engineering", year: "2nd Year" },
-    { name: "Leah Shibin", role: "CAD / Materials and Manufacturing / Recovery", degree: "Aerospace Engineering", year: "2nd Year" },
-    { name: "A'isha Ayyub", role: "Aerodynamics / Manufacturing / Testing ", degree: "Aerospace Engineering", year: "2nd Year" },
-    { name: "Sanjo Peeter Silijan", role: "Recovery Lead", degree: "Aerospace Engineering", year: "2nd Year" },
-    { name: "Joseph Wood", role: "Electronics / Avionics Lead", degree: "Avionic Systems", year: "3rd Year" },
-    { name: "Adam Smart", role: "Programming", degree: "Computer Science", year: "2nd Year" },
-  ];
-
-  const teamMembers2425 = [
-    { name: "Karl King", role: "Team Lead ", degree: "Aerospace Engineering", year: "2nd Year" },
-    { name: "Eissa Hussain", role: "CAD Lead", degree: "Aerospace Engineering", year: "2nd Year" },
-    { name: "Matthew Barnes", role: "Manufacturing Lead / CAD", degree: "Aerospace Engineering", year: "2nd Year" },
-    { name: "Hildah Namulondo", role: "Aerospace Engineer / Testing", degree: "Aerospace Engineering", year: "1st Year" },
-    { name: "Juny Suh", role: "Simulations Lead", degree: "Aerospace Engineering", year: "1st Year" },
-    { name: "Leah Shibin", role: "Aerospace Engineer / Testing", degree: "Aerospace Engineering", year: "1st Year" },
-    { name: "Hugh Rawes", role: "Recovery", degree: "Aerospace Engineering", year: "2nd Year" },
-    { name: "Joeseph Wood", role: "Avionics Lead", degree: "Avionic Systems", year: "2nd Year" },
-    { name: "Thiruwaran Kalvin", role: "Programming Lead", degree: "Computer Science", year: "1st Year" },
-    { name: "Adam Smart", role: "Programming", degree: "Computer Science", year: "1st Year" },
-  ];
-
-  const teamMembers2324 = [
-    { name: "Natasha Cooper", role: "Founder / Team Lead", degree: "Mechanical Engineering", year: "3rd Year" },
-    { name: "Karl King", role: "Vice Team Lead ", degree: "Aerospace Engineering", year: "1st Year" },
-  ];
-
   return (
     <main className="about-page-container">
-      <h2 className="about-page-title">
-        About The Team
-      </h2>
-      
+      <h2 className="about-page-title">About The Team</h2>
+
       <div className="about-page-description-box">
+        <h3>About Unity Rise</h3>
         <p>
-          Unity Rise is a multidisciplinary team of STEM students (mainly engineering) dedicated to designing, building and launching model rockets.
+          Unity Rise is a student-run, multidisciplinary rocketry team from the University of
+          Liverpool. Operating as a project team within LASER, we bring together STEM
+          students&mdash;primarily from aerospace engineering, mechanical engineering, electrical engineering and computer science
+          backgrounds&mdash;to design, build and launch high-power rockets.
         </p>
+
+        <h3>Our Engineering Approach</h3>
         <p>
-          Founded in 2023, as a project team within LASER, our mission is to provide hands-on experience to university students and compete in the UKSEDS National Rocketry Championship. We design and build rockets from the ground up, focusing on innovation and performance, building our own avionics and airframes from scratch.
+          Our mission is to provide members with practical, hands-on experience across the entire
+          rocket development cycle in a supportive learning environment. We design and build our
+          rockets from the ground up to meet rigorous competition targets, such as the 2,500ft
+          altitude goal. Every subsystem is student-led, from initial CAD models to launch day. Our
+          core focus areas include:
         </p>
+        <ul>
+          <li>
+            <strong>Custom Airframes &amp; Structures:</strong> Designed for innovation, aerodynamic
+            performance and safe testing.
+          </li>
+          <li>
+            <strong>In-House Avionics:</strong> Tailored electronic systems developed from scratch
+            for accurate flight data, tracking and telemetry.
+          </li>
+          <li>
+            <strong>Propulsion &amp; Recovery:</strong> Iteratively designed and rigorously
+            ground-tested to ensure vehicle reliability.
+          </li>
+        </ul>
+
+        <h3>Competitions &amp; Awards</h3>
         <p>
-          Our aim is to learn through hands-on projects: designing and building rockets to
-          meet typical competition targets (around 2500ft). While safety and practicality
-          remain priorities, we design custom airframes and develop in-house avionics systems
-          tailored to each project - giving members real experience in system design,
-          integration and testing. We compete every year in the National Rocketry
-          Championship (NRC) and focus on providing members with practical experience
-          and a supportive environment for learning.
+          We actively push our engineering limits by competing annually in Mach-X and the UKSEDS
+          National Rocketry Championship (NRC). We are incredibly proud of our track record at the
+          NRC, highlighted by our overall 1st Place Championship win in 2026. Our history of
+          technical and team awards includes:
         </p>
+        <ul>
+          <li>Best Rideshare Payload Award (2026)</li>
+          <li>Public Engagement Award (2026)</li>
+          <li>Most Novel Deployment Award (2025)</li>
+          <li>Best Airframe Award (2024)</li>
+        </ul>
         <p>
-          We build student-scale rockets that combine custom-built airframes with in-house
-          avionics for flight data, tracking and telemetry. Projects span structures,
-          propulsion, avionics and recovery, and are student-led with an emphasis on safe
-          testing, iterative design and preparing vehicles for the National Rocketry
-          Championship. Members gain practical skills through design,
-          prototyping, ground testing and launch days.
+          We are always looking for new members who are passionate about aerospace, hands-on
+          engineering and pushing our rockets higher each year!
         </p>
       </div>
 
-      {/* 2025/2026 Section */}
-      <div className="team-section">
-        <h3>Meet the Team 25/26</h3>
-        
-        <div className="team-image-container">
-          <img 
-            src="/team.jpg" 
-            alt="The Unity Rise Team 25/26" 
-            className="team-image"
-          />
-        </div>
+      {teamSeasons.map(({ season, competition, image, members }) => (
+        <div className="team-section" key={`${season}-${competition}`}>
+          <h3>
+            Meet the Team {season} ({competition})
+          </h3>
 
-        <div className="team-table-container">
-          <table className="team-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Role</th>
-                <th>Degree Program</th>
-                <th>Year</th>
-              </tr>
-            </thead>
-            <tbody>
-              {teamMembers2526.map((member, index) => (
-                <tr key={index}>
-                  <td>{member.name}</td>
-                  <td className="role-cell">{member.role}</td>
-                  <td>{member.degree}</td>
-                  <td>{member.year}</td>
+          {image && (
+            <div className="team-image-container">
+              <img
+                src={image}
+                alt={`The Unity Rise Team ${season} (${competition})`}
+                className="team-image"
+              />
+            </div>
+          )}
+
+          <div className="team-table-container">
+            <table className="team-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Role</th>
+                  <th>Degree Program</th>
+                  <th>Year</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {members.map((member) => (
+                  <tr key={`${member.name}-${member.role}`}>
+                    <td>{member.name}</td>
+                    <td className="role-cell">{member.role}</td>
+                    <td>{member.degree}</td>
+                    <td>{member.year}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
-
-      {/* 2024/2025 Section */}
-      <div className="team-section">
-        <h3>Meet the Team 24/25</h3>
-        
-        <div className="team-image-container">
-          <img 
-            src="/gallery4.jpg" 
-            alt="The Unity Rise Team 24/25" 
-            className="team-image"
-          />
-        </div>
-
-        <div className="team-table-container">
-          <table className="team-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Role</th>
-                <th>Degree Program</th>
-                <th>Year</th>
-              </tr>
-            </thead>
-            <tbody>
-              {teamMembers2425.map((member, index) => (
-                <tr key={index}>
-                  <td>{member.name}</td>
-                  <td className="role-cell">{member.role}</td>
-                  <td>{member.degree}</td>
-                  <td>{member.year}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* 2023/2024 Section */}
-      <div className="team-section">
-        <h3>Meet the Team 23/24</h3>
-        
-        <div className="team-image-container">
-          <img 
-            src="/gallery1.jpg"
-            alt="The Unity Rise Team 23/24" 
-            className="team-image"
-          />
-        </div>
-
-        <div className="team-table-container">
-          <table className="team-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Role</th>
-                <th>Degree Program</th>
-                <th>Year</th>
-              </tr>
-            </thead>
-            <tbody>
-              {teamMembers2324.map((member, index) => (
-                <tr key={index}>
-                  <td>{member.name}</td>
-                  <td className="role-cell">{member.role}</td>
-                  <td>{member.degree}</td>
-                  <td>{member.year}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      ))}
     </main>
   );
 }

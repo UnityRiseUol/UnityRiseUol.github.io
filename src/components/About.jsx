@@ -18,6 +18,8 @@ function About() {
               in competitions like the UKSEDS National Rocketry Championship. Founded through LASER
               (Liverpool Association for Space Engineering & Research), we work on designing and building
               rockets to develop practical engineering skills.
+
+
             </p>
           </div>
 

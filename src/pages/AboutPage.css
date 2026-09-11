@@ -21,12 +21,37 @@
   margin-bottom: 40px;
 }
 
+.about-page-description-box h3 {
+  font-family: 'Orbitron', system-ui, sans-serif;
+  font-size: 1.25rem;
+  color: var(--accent);
+  margin: 2rem 0 0.75rem;
+}
+
+.about-page-description-box h3:first-child {
+  margin-top: 0;
+}
+
 .about-page-description-box p {
   margin-bottom: 1rem;
   line-height: 1.6;
 }
 
-.about-page-description-box p:last-child {
+.about-page-description-box ul {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+
+.about-page-description-box li {
+  margin-bottom: 0.5rem;
+}
+
+.about-page-description-box li strong {
+  color: var(--text);
+}
+
+.about-page-description-box > *:last-child {
   margin-bottom: 0;
 }
 
