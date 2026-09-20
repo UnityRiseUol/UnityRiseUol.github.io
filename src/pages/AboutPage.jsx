@@ -12,6 +12,7 @@ const teamSeasons = [
       { name: "Thiruwaran Kalvin", role: "Avionics Lead", degree: "BSc Computer Science With Artificial Intelligence", year: "3rd Year" },
       { name: "Ben Cooke", role: "CanSat Lead", degree: "BEng Computer Science & Electronic Engineering", year: "3rd Year" },
       { name: "Matteo Venuti", role: "Avionics Engineer", degree: "MEng Computer Science & Electronic Engineering", year: "4th Year" },
+      { name: "Diptanshu Jain", role: "Avionics Engineer", degree: "BEng Mechatronics & Robotics", year: "3rd Year" },
       { name: "Matthew Barnes", role: "Aerospace Engineer", degree: "MEng Aerospace Engineering", year: "4th Year" },
       { name: "Inga Panko", role: "Aerospace Engineer", degree: "MEng Aerospace Engineering", year: "3rd Year" },
       { name: "Travis Totney", role: "Aerospace Engineer", degree: "BEng Aerospace Engineering", year: "3rd Year" },

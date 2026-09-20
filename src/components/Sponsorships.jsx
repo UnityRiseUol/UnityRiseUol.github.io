@@ -24,6 +24,11 @@ function Sponsorships() {
       name: 'Easy Composites',
       logo: '/easy-composites-logo-simple-curves.jpg',
       url: 'https://www.easycomposites.co.uk/',
+    },
+    {
+      name: 'RAPID',
+      logo: '/rapid-wide-light.png',
+      url: '/WonSeok_Choi_Profile.pdf',
     }
   ];
 

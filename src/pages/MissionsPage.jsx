@@ -4,7 +4,7 @@ import './MissionsPage.css';
 const timelineData = [
   {
     date: '2026-2027',
-    title: 'Name TBC',
+    title: 'PH-27 (PULSAR Heavy 27)',
     competition: 'UKSEDS MACH-X',
     logo: '/mach_x_logo.png',
     images: [],
@@ -12,7 +12,7 @@ const timelineData = [
   },
   {
     date: '2025-2026',
-    title: 'PL-26',
+    title: 'PL-26 (PULSAR Lite 26)',
     competition: 'UKSEDS NRC',
     logo: '/nrc_logo.png',
     videoId: 'oFqZ_HMK2UE',

@@ -1,14 +1,37 @@
 import './Footer.css';
+import { Link } from 'react-router-dom';
 import { FaInstagram, FaTiktok, FaLinkedin, FaYoutube } from 'react-icons/fa';
+
+const CONTACT_EMAIL = 'unityriseuol@gmail.com';
 
 function Footer() {
   const currentYear = new Date().getFullYear();
 
   const socialMedia = [
-    { name: 'Instagram', url: 'https://instagram.com/uol.unity.rise', icon: <FaInstagram /> },
-    { name: 'TikTok', url: 'https://tiktok.com/@unity.rise', icon: <FaTiktok /> },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/company/laser-liverpool/posts/?feedView=all', icon: <FaLinkedin /> },
-    { name: 'YouTube', url: 'https://youtube.com/@unityriseuol?si=-dAl0cNml46-dW6S', icon: <FaYoutube /> },
+    { name: 'Unity Rise on Instagram', url: 'https://instagram.com/uol.unity.rise', icon: <FaInstagram /> },
+    { name: 'LASER on Instagram', url: 'https://www.instagram.com/laser_uol/', icon: <FaInstagram /> },
+    { name: 'Unity Rise on TikTok', url: 'https://tiktok.com/@unity.rise', icon: <FaTiktok /> },
+    { name: 'Unity Rise on LinkedIn', url: 'https://www.linkedin.com/company/unity-rise/home/', icon: <FaLinkedin /> },
+    { name: 'LASER on LinkedIn', url: 'https://www.linkedin.com/company/laser-liverpool/home/', icon: <FaLinkedin /> },
+    { name: 'Unity Rise on YouTube', url: 'https://youtube.com/@unityriseuol?si=-dAl0cNml46-dW6S', icon: <FaYoutube /> },
+  ];
+
+  const quickLinks = [
+    { name: 'About', to: '/about' },
+    { name: 'Projects', to: '/projects' },
+    { name: 'Missions', to: '/missions' },
+    { name: 'Blog', to: '/blog' },
+    { name: 'Sponsorships', to: '/sponsorships' },
+    { name: 'Outreach', to: '/#outreach' },
+    { name: 'Contact', to: '/#contact' },
+  ];
+
+  const getInvolved = [
+    { name: 'Join Our Team', href: `mailto:${CONTACT_EMAIL}?subject=Joining%20Unity%20Rise` },
+    { name: 'Volunteer', href: `mailto:${CONTACT_EMAIL}?subject=Volunteering%20with%20Unity%20Rise` },
+    { name: 'Host a Workshop', href: `mailto:${CONTACT_EMAIL}?subject=Hosting%20a%20Workshop` },
+    { name: 'Sponsor Us', to: '/sponsorships' },
+    { name: 'Attend an Event', to: '/#outreach' },
   ];
 
   return (
@@ -30,22 +53,22 @@ function Footer() {
           <div className="footer-section">
             <h4>Quick Links</h4>
             <ul>
-              <li><a href="#about">About</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#sponsorships">Sponsorships</a></li>
-              <li><a href="#outreach">Outreach</a></li>
-              <li><a href="#contact">Contact</a></li>
+              {quickLinks.map((link) => (
+                <li key={link.name}><Link to={link.to}>{link.name}</Link></li>
+              ))}
             </ul>
           </div>
 
           <div className="footer-section">
             <h4>Get Involved</h4>
             <ul>
-              <li><a href="#">Join Our Team</a></li>
-              <li><a href="#">Volunteer</a></li>
-              <li><a href="#">Host a Workshop</a></li>
-              <li><a href="#">Sponsor Us</a></li>
-              <li><a href="#">Attend an Event</a></li>
+              {getInvolved.map((link) => (
+                <li key={link.name}>
+                  {link.to
+                    ? <Link to={link.to}>{link.name}</Link>
+                    : <a href={link.href}>{link.name}</a>}
+                </li>
+              ))}
             </ul>
           </div>
 
