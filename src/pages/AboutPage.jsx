@@ -18,7 +18,7 @@ const teamSeasons = [
       { name: "Travis Totney", role: "Aerospace Engineer", degree: "BEng Aerospace Engineering", year: "3rd Year" },
       { name: "Leah Shibin", role: "Aerospace Engineer", degree: "BEng Aerospace Engineering", year: "3rd Year" },
       { name: "Muhammad Khan", role: "Aerospace Engineer", degree: "BEng Aerospace Engineering", year: "3rd Year" },
-      { name: "Neelam Dhariwal", role: "Aerospace Engineer", degree: "BEng Aerospace Engineering", year: "3rd Year" }
+      { name: "Neelam Dhariwal", role: "Aerospace Engineer", degree: "BEng Mechanical Engineering", year: "3rd Year" }
     ],
   },
   {
