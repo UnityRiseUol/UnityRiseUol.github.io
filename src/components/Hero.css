@@ -97,7 +97,7 @@
 
 .countdown-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -234,11 +234,20 @@
   }
 
   .countdown-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .countdown-item {
+    padding: 10px 6px;
   }
 
   .countdown-value {
-    font-size: 26px;
+    font-size: 22px;
+  }
+
+  .countdown-unit {
+    font-size: 10px;
   }
 
   .hero-visual {

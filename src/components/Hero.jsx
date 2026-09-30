@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Hero.css';
 
-const launchDate = new Date('2027-07-01T00:00:00');
+const machXLaunchDate = new Date('2027-07-01T00:00:00');
+const nextLaunchDate = new Date('2027-06-17T00:00:00');
 
-function getTimeRemaining() {
-  const total = launchDate.getTime() - Date.now();
+function getTimeRemaining(targetDate) {
+  const total = targetDate.getTime() - Date.now();
 
   if (total <= 0) {
     return null;
@@ -14,17 +15,22 @@ function getTimeRemaining() {
   const days = Math.floor(total / (1000 * 60 * 60 * 24));
   const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
   const minutes = Math.floor((total / (1000 * 60)) % 60);
+  const seconds = Math.floor((total / 1000) % 60);
 
-  return { days, hours, minutes };
+  return { days, hours, minutes, seconds };
 }
 
 function Hero() {
-  const [timeRemaining, setTimeRemaining] = useState(getTimeRemaining);
+  const [machXTime, setMachXTime] = useState(() => getTimeRemaining(machXLaunchDate));
+  const [nextLaunchTime, setNextLaunchTime] = useState(() => getTimeRemaining(nextLaunchDate));
 
   useEffect(() => {
-    const timerId = window.setInterval(() => {
-      setTimeRemaining(getTimeRemaining());
-    }, 1000);
+    const updateCountdowns = () => {
+      setMachXTime(getTimeRemaining(machXLaunchDate));
+      setNextLaunchTime(getTimeRemaining(nextLaunchDate));
+    };
+
+    const timerId = window.setInterval(updateCountdowns, 1000);
 
     return () => window.clearInterval(timerId);
   }, []);
@@ -39,27 +45,59 @@ function Hero() {
             We design, build, and launch model rockets as part of the UKSEDS National Rocketry Championship,
             and Mach-X Rocketry Championship in the coming year.
           </p>
-          <div className="hero-countdown" aria-label="Countdown to our next launch on 1 July 2027">
-            <p className="hero-countdown-label">Next Launch T-Minus:</p>
-            {timeRemaining ? (
+
+          <div className="hero-countdown" aria-label="Countdown to our Mach-X launch on 1 July 2027">
+            <p className="hero-countdown-label">MACH-X Next Launch T-Minus:</p>
+            {machXTime ? (
               <div className="countdown-grid">
                 <div className="countdown-item">
-                  <span className="countdown-value">{String(timeRemaining.days).padStart(2, '0')}</span>
+                  <span className="countdown-value">{String(machXTime.days).padStart(2, '0')}</span>
                   <span className="countdown-unit">Days</span>
                 </div>
                 <div className="countdown-item">
-                  <span className="countdown-value">{String(timeRemaining.hours).padStart(2, '0')}</span>
+                  <span className="countdown-value">{String(machXTime.hours).padStart(2, '0')}</span>
                   <span className="countdown-unit">Hours</span>
                 </div>
                 <div className="countdown-item">
-                  <span className="countdown-value">{String(timeRemaining.minutes).padStart(2, '0')}</span>
+                  <span className="countdown-value">{String(machXTime.minutes).padStart(2, '0')}</span>
                   <span className="countdown-unit">Minutes</span>
+                </div>
+                <div className="countdown-item">
+                  <span className="countdown-value">{String(machXTime.seconds).padStart(2, '0')}</span>
+                  <span className="countdown-unit">Seconds</span>
                 </div>
               </div>
             ) : (
               <p className="countdown-live">Launch day is here — see you on 1 July 2027.</p>
             )}
           </div>
+
+          <div className="hero-countdown" aria-label="Countdown to our next launch on 17 June 2027">
+            <p className="hero-countdown-label">NRC Next Launch T-Minus:</p>
+            {nextLaunchTime ? (
+              <div className="countdown-grid">
+                <div className="countdown-item">
+                  <span className="countdown-value">{String(nextLaunchTime.days).padStart(2, '0')}</span>
+                  <span className="countdown-unit">Days</span>
+                </div>
+                <div className="countdown-item">
+                  <span className="countdown-value">{String(nextLaunchTime.hours).padStart(2, '0')}</span>
+                  <span className="countdown-unit">Hours</span>
+                </div>
+                <div className="countdown-item">
+                  <span className="countdown-value">{String(nextLaunchTime.minutes).padStart(2, '0')}</span>
+                  <span className="countdown-unit">Minutes</span>
+                </div>
+                <div className="countdown-item">
+                  <span className="countdown-value">{String(nextLaunchTime.seconds).padStart(2, '0')}</span>
+                  <span className="countdown-unit">Seconds</span>
+                </div>
+              </div>
+            ) : (
+              <p className="countdown-live">Launch day is here — see you on 17 June 2027.</p>
+            )}
+          </div>
+
           <div className="hero-cta">
             <Link to="/missions" className="cta-button primary">View Our Missions</Link>
             <a href="#contact" className="cta-button secondary">Get Involved</a>
